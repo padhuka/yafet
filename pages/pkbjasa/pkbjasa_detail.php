@@ -48,7 +48,7 @@
                 <div class="modal-header">                        
                         <h4 class="modal-title" id="myModalLabel">
                                     <button type="button" class=" btn btn-default btn-circle" name="jasa" onclick="jasae('<?php echo $idpkbjasa;?>'); $('#ModalAddjasax').modal('show');">&nbsp;Tambah Paket Jasa&nbsp;</button>
-                                    <!--<button type="button" class=" btn btn-default btn-circle" name="salon" onclick="salone('<?php //echo $idpkbjasa[0];?>');">Salon</button>-->
+                                    <button type="button" class=" btn btn-default btn-circle" name="jasay" onclick="jasaey('<?php echo $idpkbjasa;?>'); $('#ModalAddjasay').modal('show');">&nbsp;Tambah Jasa&nbsp;</button>
                         </h4>
                 </div> 
                 <div class="modal-header">                        
@@ -59,26 +59,14 @@
                 <br>
         </div>
 </div>
-        <div id="ModalAddsalonx" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <div id="ModalAddjasax" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        <div id="ModalAddjasay" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
         <script type="text/javascript">
             $(document).ready(function (){
                  var idpkbjasae='<?php echo $idpkbjasa;?>';
                  $("#tablepkbjasadetail").load('pkbjasa/pkbjasa_detail_tab.php?idpkbjasa='+idpkbjasae);
             });
-
-            function salone(x){
-
-              $.ajax({
-                    url: "pkbjasa/salon_tab.php?idpkbjasane="+x,
-                    type: "GET",
-                      success: function (ajaxData){
-                        $("#ModalAddsalonx").html(ajaxData);
-                        $("#ModalAddsalonx").modal({backdrop: 'static',keyboard: false});
-                      }
-                    });
-              }
 
             function jasae(y){
               $.ajax({
@@ -87,6 +75,17 @@
                       success: function (ajaxData){
                         $("#ModalAddjasax").html(ajaxData);
                         $("#ModalAddjasax").modal('show',{backdrop: 'true'});
+                      }
+                    });
+              }
+
+              function jasaey(y){
+              $.ajax({
+                    url: "pkbjasa/jasay_tab.php?idpkbjasane="+y,
+                    type: "GET",
+                      success: function (ajaxData){
+                        $("#ModalAddjasay").html(ajaxData);
+                        $("#ModalAddjasay").modal('show',{backdrop: 'true'});
                       }
                     });
               }
