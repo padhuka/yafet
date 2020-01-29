@@ -81,9 +81,9 @@
               
         </div>
 </div>
-<?php include_once 'paycuci_pkb_tab.php';?>
+<?php //include_once 'paycuci_pkb_tab.php';?>
 <?php include_once 'paycuci_kwitansi_tab.php';?>
-<?php include_once 'paycuci_partner_tab.php';?>
+<?php //include_once 'paycuci_partner_tab.php';?>
 <script type="text/javascript">
   $('#buttonTitipan').hide();
   $('#showPkb').hide();

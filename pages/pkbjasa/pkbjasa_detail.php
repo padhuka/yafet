@@ -47,7 +47,7 @@
                 <div id="tablepkbjasadetail"></div>                
                 <div class="modal-header">                        
                         <h4 class="modal-title" id="myModalLabel">
-                                    <button type="button" class=" btn btn-default btn-circle" name="jasa" onclick="jasae('<?php echo $idpkbjasa;?>'); $('#ModalAddjasax').modal('show');">&nbsp;Paket Jasa&nbsp;</button>
+                                    <button type="button" class=" btn btn-default btn-circle" name="jasa" onclick="jasae('<?php echo $idpkbjasa;?>'); $('#ModalAddjasax').modal('show');">&nbsp;Tambah Paket Jasa&nbsp;</button>
                                     <!--<button type="button" class=" btn btn-default btn-circle" name="salon" onclick="salone('<?php //echo $idpkbjasa[0];?>');">Salon</button>-->
                         </h4>
                 </div> 

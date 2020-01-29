@@ -95,14 +95,21 @@
                                                   cache: false,
                                                   processData:false,
                                                   success: function(data){  
-                                                      var hsl=data.trim();
-                                                      alert(hsl);
-			                                                $("#pkbjasajasa").load('pkbjasa/jasa_load.php?idpkbjasa=<?php echo $idpkbjasa;?>');
-                                                                      $('.modal-body').css('opacity', '');
+                                                      var hsl=data.trim();                                                      
+                                                      if (hsl=='Data Sudah Ada'){
+                                                        alert(hsl);
+                                                        return false;
+                                                      }
+                                                      //$("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
+			                                                //$("#pkbjasajasa").load('pkbjasa/jasa_load.php?idpkbjasa=<?php echo $idpkbjasa;?>');
+                                                          //$('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAddjasa').modal('hide');
+                                                            $('#ModalAddjasax').modal('hide');
                                                             $("#tablepkbjasadetail").load('pkbjasa/pkbjasa_detail_tab.php?idpkbjasa=<?php echo $idpkbjasa;?>');
+                                                            $("#ModalpkbjasaDet").html(ajaxData);
+                                                            $("#ModalpkbjasaDet").modal({backdrop: 'static', keyboard:false});
 			                                            }
                                                       
                                                 });

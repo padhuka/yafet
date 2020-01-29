@@ -6,15 +6,16 @@
         $idpkbjasa=$_GET['idpkbjasa'];
 
         $sqlest= "SELECT * FROM t_pkb_jasa_detail
-                  WHERE fk_paket_jasa='$id_paket_jasa'";
+                  WHERE fk_pkb_jasa='$idpkbjasa' AND fk_paket_jasa='$id_paket_jasa'";
                   $qest=mysql_query($sqlest);
                   $hest= mysql_fetch_array($qest);
                   $hcek=$hest['fk_paket_jasa'];
+                  
                   if ($hcek){ echo "Data Sudah Ada";
                   }else{
                       //paketdata
                       $spaketdata= "SELECT * FROM t_paket_jasa_detail WHERE fk_paket_jasa='$id_paket_jasa'";
-                      echo $spaketdata;
+                      
                       $qpaketdata= mysql_query($spaketdata);
                       while($hpdata=mysql_fetch_array($qpaketdata)){
                         //$sqltbemp = "INSERT INTO t_pkb_jasa_detail (fk_pkb_jasa,fk_paket_jasa,fk_jasa,harga_jual_jasa,diskon_jasa,harga_diskon_jasa,harga_jual_paket_jasa,diskon_paket_jasa,harga_diskon_paket_jasa,harga_total_pkb_jasa)
@@ -22,16 +23,14 @@
                          VALUES ('$idpkbjasa','$id_paket_jasa','$hpdata[fk_jasa]','$hpdata[harga_jual_paket_jasa]','$hpdata[diskon_paket_jasa]','$hpdata[harga_diskon_paket_jasa]','$hpdata[harga_total_paket_jasa]','','','')";
                           mysql_query($sqltbemp);
                       }
-                      /*$sqljasa= "SELECT sum(harga_jual_paket_jasa) AS totjualjasa,sum(harga_diskon_paket_jasa) AS totdiskonjasa, sum(harga_total_paket_jasa) AS totpaketjasa FROM t_paket_jasa_detail WHERE fk_paket_jasa = '$idpaketjasa'";
+
+                      $sqljasa= "SELECT sum(harga_jual_paket_jasa) AS totpaketjasa FROM t_pkb_jasa_detail WHERE fk_pkb_jasa = '$idpkbjasa'";
                       $hjasa= mysql_fetch_array(mysql_query($sqljasa));
-                      //jml jasa
-
-                      $totgrosjasa=$hjasa['totpaketjasa'];
-                      //$totdiskonjasa=$hjasa['totdiskonjasa'];
-                      //$totnettojasa=$hjasa['totpaketjasa'];
-
-                      $updatejasa = "UPDATE t_paket_jasa set total_harga_paket='$totgrosjasa' WHERE id_paket_jasa='$idpaketjasa'";
-                      mysql_query($updatejasa);*/
+                      $totjasa=$hjasa['totpaketjasa'];
+                      //echo $sqljasa;
+                      //exit();
+                      $updatejasa = "UPDATE t_pkb_jasa set total_netto_harga_jasa='$totjasa' WHERE id_pkb_jasa='$idpkbjasa'";
+                      mysql_query($updatejasa);
                      
                   }
 		

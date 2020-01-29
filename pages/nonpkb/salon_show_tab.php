@@ -6,13 +6,15 @@
     $idnonpkb = $_GET['idnonpkbne'];
    ?>
 <div class="modal-dialog">
-           <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data nonpkb Salon <button type="button" class="close" aria-label="Close" onclick="$('#ModalSalonShow').modal('hide');"><span>&times;</span></button></h4>                    
+  <div class="title">   
+   <table width="100%"><tr style="text-align: center;"><td width="90%" style="padding-left: 10%;">.::<?php echo $title;?>::.</td><td width="10%" align="right"><button type="button" onclick="$('#ModalSalonShow').modal('hide');">x</button></td></tr></table>
+  </div>
+                <div class="modal-content">
+                    <div class="modal-header">                        
+                        <h4 class="modal-title" id="myModalLabel">Data Non PKB - <?php echo $idnonpkb;?></h4>
                     </div>
-               
-                    <div class="modal-body"><br>
-                     
+                <div class="modal-body">
+                      <br>                    
 
                       <div class="row">
             <table id="nonpkbSalon" class="table table-condensed table-bordered table-striped table-hover">
@@ -33,10 +35,9 @@
                                     WHERE fk_nonpkb='$idnonpkb' ORDER BY id ASC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
-                                         $markSalon= $catat['mark_Salon'];
                                 ?>
                         <tr>
-                          <td ><?php echo $catat['nama'];if ($markSalon=='1'){echo ' *';}?></td>
+                          <td ><?php echo $catat['nama'];?></td>
                           <td ><?php echo rupiah2($catat['harga_jual_salon']);?></td>
                           <td ><?php echo rupiah2($catat['harga_diskon_salon']);?></td>
                           <td ><?php echo rupiah2($catat['harga_total_nonpkb_salon']);?></td>
@@ -48,45 +49,8 @@
               </table>
                
                </div>
-                  <div class="form-group">
-                      <div class="modal-footer">
-                      <div class="but">
-                                    <button type="button" class=" btn btn-default btn-circle" name="close" onclick="$('#ModalSalonShow').modal('hide');">Close</button>
-                     </div>
-                     </div>
-                     </div>
+                  <h4 class="modal-title" id="myModalLabel">
+                        <button type="button" class=" btn btn-default btn-circle" name="close" onclick="$('#ModalSalonShow').modal('hide');">Close</button>
+                  </h4>
            </div>
            </div>      
-     
-
-<style type="text/css">
-  .modal-footer {
-    padding-top: 10px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .modal-title {
-    font-style: italic;
-    background-color: lightcoral;
-    text-align: center;
-    font-weight: bold;
-  }
-  .total {
-  font-weight: bold;border-top:   inset;
-  }
-    .but {
-    text-align: center;
-  }
-  .modal-title-detail {
-    font-style: italic;
-    background-color: lightblue;
-    text-align: center;
-    font-weight: bold;
-  }
-  .modal-dialog {
-    margin-bottom: 0px;
-    border: 3px;
-    width: 800px;
-  }
-</style>

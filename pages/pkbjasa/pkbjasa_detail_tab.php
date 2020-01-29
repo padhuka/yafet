@@ -11,8 +11,7 @@
                           <th>Nama Paket</th>
                           <th>Harga</th>
                           <th>Diskon</th>
-                          <th>Sub Total</th>
-                          <th></th>                          
+                          <th>Sub Total</th>              
                 </tr>
                 </thead>
                 <tbody>  
@@ -23,30 +22,29 @@
                   WHERE A.fk_pkb_jasa = '$idpkbjasa'";
                   //echo $sqlest;
                   $qest=mysql_query($sqlest);
-                  //$totals=0;
+                  $totals=0;
                   while($hest= mysql_fetch_array($qest)){;
                     //$totals=$totals+$hest['harga_jual_paket_jasa'];
-                    $totals=$hest['total_harga_paket'];
+                    $totals=$hest['harga_jual_paket_jasa']+$totals;
                 ?>              
                         <tr>
                           <td><?php echo $hest['nmjasa'];?></td>
                           <td><?php echo $hest['nmpaket'];?></td>
                           <td><?php echo rupiah2($hest['harga_jual_jasa']);?></td>
                           <td><?php echo rupiah2($hest['diskon_paket_jasa']);?></td>
-                          <td><?php echo rupiah2($hest['harga_jual_paket_jasa']);?></td>
-                          <td>
-                            <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['fk_jasa']; ?>" onclick="open_deljasa(iddeljasa='<?php echo $hest['fk_jasa'];?>');"><span>Hapus</span></button>
-                          </td>
+                          <td><?php echo rupiah2($hest['harga_jual_paket_jasa']);?></td>                         
                         </tr>    
                   <?php } ?>       	
+                        
                 </tfoot>
               </table>
+             <table align="center" width="90%"><tr><td width="80%" align="right"><strong>Total&nbsp;&nbsp;&nbsp;</td><td><?php echo rupiah2($totals);?></strong></td></tr></table>
               <input type="hidden" id="hartote" value="<?php echo $totals;?>">
         <script>$('#paketjasadetailxx2').DataTable();
 
          function tambahjasa(y){
               $.ajax({
-                    url: "paketjasa/jasa_add.php?id_paket_jasane="+y,
+                    url: "pkbjasa/jasa_add.php?id_paket_jasane="+y,
                     type: "GET",
                       success: function (ajaxData){
                         $("#ModalAddjasax").html(ajaxData);
@@ -57,7 +55,7 @@
 
              function open_deljasa(){
                                 $.ajax({
-                                    url: "paketjasa/jasa_del.php?fk_jasa="+iddeljasa,
+                                    url: "pkbjasa/jasa_del.php?fk_jasa="+iddeljasa,
                                     type: "GET",
                                     success: function (ajaxData){
                                         $("#ModalDeleteJasa").html(ajaxData);

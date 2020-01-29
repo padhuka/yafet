@@ -24,7 +24,7 @@
                       <br>
                       <div class="row">
                        <div class="col-sm-6">
-                       <table id="nonpkbshow" class="">
+                       <table id="nonpkbshow" class="dataTable">
                        <td>
                          <th class="col-sm-6">
                         <tr> <th>No Non PKB</th> <td ><?php echo $catat['id_nonpkb'];?></td></tr>
@@ -42,7 +42,7 @@
                          </div>
                       </div>
                        
-                <table id="nonpkbsalon" class="table table-condensed table-bordered table-striped table-hover">
+                <table id="nonpkbsalon" class="dataTable table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                         <tr><th>No</th><th>Pekerjaan</th><th>Total</th></tr>
                         </thead>

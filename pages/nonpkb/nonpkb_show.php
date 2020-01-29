@@ -6,27 +6,27 @@
     $idnonpkb= $_GET['idnonpkb'];
  //   $sqlpan= "SELECT * FROM t_nonpkb WHERE id_nonpkb='$idnonpkb'";
  //  $catat= mysql_fetch_array(mysql_query($sqlpan));
-  
-   ?>
-<div class="modal-dialog">
-           <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;padding-right: 0px">Data Non PKB <button type="button" class="close" aria-label="Close" onclick="$('#ModalShow').modal('hide');"><span>&times;</span></button></h4>                    
-                    </div>
-                  <?php
-                                    $j=1;
+    $j=1;
                                     $sqlcatat = "SELECT * FROM t_nonpkb e 
                                                   left join t_customer c
                                                   on e.fk_customer=c.id_customer
                                                   where e.id_nonpkb='$idnonpkb'";
                                     $rescatat = mysql_query( $sqlcatat );
-                                    while($catat = mysql_fetch_array( $rescatat )){
-                                ?>
-                    <div class="modal-body">
-                      <div class="modal-title-detail">Non PKB</div>
+                                    $catat = mysql_fetch_array( $rescatat );
+   ?>
+<div class="modal-dialog">
+  <div class="title">   
+   <table width="100%"><tr style="text-align: center;"><td width="90%" style="padding-left: 10%;">.::<?php echo $title;?>::.</td><td width="10%" align="right"><button type="button" data-dismiss="modal">x</button></td></tr></table>
+  </div>
+                <div class="modal-content">
+                    <div class="modal-header">                        
+                        <h4 class="modal-title" id="myModalLabel">Data Non PKB - <?php echo $catat['id_nonpkb'];?></h4>
+                    </div>
+                <div class="modal-body">
+                      <br>
                       <div class="row">
                        <div class="col-sm-6">
-                       <table id="nonpkbshow" class="table table-condensed table-bordered table-striped table-hover">
+                       <table id="nonpkbshow" class="dataTable table table-condensed table-bordered table-striped table-hover">
                        <td>
                          <th class="col-sm-6">
                         <tr> <th>No Non PKB</th> <td ><?php echo $catat['id_nonpkb'];?></td></tr>
@@ -38,27 +38,14 @@
                        </td>
                       </table>
                            </div>
-                          <!--
-                            <div class="col-sm-6">
-                               <table id="nonpkbshow" class="table table-condensed table-bordered table-striped table-hover">
-                          <td>
-                         <th class="col-sm-6">
-                        <tr> <th>Kategori </th> <td ><?php echo $catat['kategori'];?></td></tr>
-                        <tr> <th>KM Masuk</th> <td ><?php echo $catat['km_masuk'];?></td></tr>
-                        <tr> <th>Asuransi</th>  <td ><?php echo $catat['fk_asuransi'];?></td></tr>
-                        <tr> <th>Nama Customer</th> <td ><?php echo $catat['nama'];?></td></tr>
-                        <tr> <th>Telp</th>   <td ><?php echo $catat['no_telp'];?></td> </tr>
-                        </th>
-                       </td>
-                               </table>
-                         </div>-->
+                         
 
-                      </div>
+                      </div><br>
 
-                       <div class="modal-title-detail">NILAI NON PKB </div>
+                        <h4 class="modal-title" id="myModalLabel">Nilai Data Non PKB</h4>
                       <div class="row">
                        <div class="col-sm-12">
-                       <table id="nonpkbshow" class="table table-condensed table-bordered table-striped table-hover">
+                       <table id="nonpkbshow" class="dataTable table table-condensed table-bordered table-striped table-hover">
                        <td >
                          <th class="col-sm-2">
                         <tr> 
@@ -81,24 +68,15 @@
                         </th>
                        </td>
                       </table>
-                      <?php }?>
                            </div>
-                      </div>
-                        <div class="form-group">
-                     <div class="modal-footer">
-                     <div class="but">
+                      </div><br>
+                   <h4 class="modal-title" id="myModalLabel">
                                     <button type="button" class=" btn btn-default btn-circle" name="Cuci" onclick="Cucishow('<?php echo $idnonpkb;?>');">&nbsp;Cuci&nbsp;</button>
                                     <button type="button" class=" btn btn-default btn-circle" name="Salon" onclick="Salonshow('<?php echo $idnonpkb;?>');">Salon</button>
-                     </div>
-                     </div>
-                     </div>
-                       <div class="form-group">
-                      <div class="modal-footer">
-                      <div class="but">
+                    </h4><br>
+                   <h4 class="modal-title" id="myModalLabel">
                                     <button type="button" class=" btn btn-default btn-circle" name="close" onclick="$('#ModalShow').modal('hide');">Close</button>
-                     </div>
-                     </div>
-                     </div>
+                   </h4>
                </div>
            </div>
            </div>      
@@ -129,35 +107,3 @@
 
   
 </script>        
-
-<style type="text/css">
-  .modal-footer {
-    padding-top: 10px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .modal-title {
-    font-style: italic;
-    background-color: lightcoral;
-    text-align: center;
-    font-weight: bold;
-  }
-  .total {
-  font-weight: bold;border-top:   inset;
-  }
-    .but {
-    text-align: center;
-  }
-  .modal-title-detail {
-    font-style: italic;
-    background-color: lightblue;
-    text-align: center;
-    font-weight: bold;
-  }
-  .modal-dialog {
-    margin-bottom: 0px;
-    border: 3px;
-    width: 800px;
-  }
-</style>

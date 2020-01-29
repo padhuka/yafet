@@ -56,7 +56,7 @@
                <br>
                 <tr><td colspan="4">&nbsp;</td></tr>
                  <tr><td colspan="4" align="center" class="bgsave">
-                 <input type="text" class="form-control" id="id_paket_jasanep" name="id_paket_jasanep" value="<?php echo $id_paket_jasane?>" required>
+                 <input type="hidden" class="form-control" id="id_paket_jasanep" name="id_paket_jasanep" value="<?php echo $id_paket_jasane?>" required>
 				                    <button type="submit" class=" btn btn-default btn-circle save_submit" name="Submit" value="SIMPAN">Simpan</button>
                                     <button type="button" class=" btn btn-default btn-circle" onclick="$('#ModalAddjasax').modal('hide');">&nbsp;Batal&nbsp;</button>
                 </td></tr>

@@ -108,8 +108,8 @@
                                                   cache: false,
                                                   processData:false,
                                                   success: function(data){
-                                                        //$("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
-                                                        //$('.modal-body').css('opacity', '');
+                                                        $("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
+                                                        $('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalEdit').modal('hide'); 
