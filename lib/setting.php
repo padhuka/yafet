@@ -1,14 +1,14 @@
 <?php 
 	// DATA BASE
 	$user="root"; // userid untuk akses database anda
-	$db="atlanticdb"; // nama database anda.
-	$passsw=""; // password untuk akses database anda
+	$db="yafetdb"; // nama database anda.
+	$passsw="s0l0b4ru"; // password untuk akses database anda
 	// baris dibawah ini jangan diedit
 	$host="localhost";
 
 	//WEB
-	$title="Atlantic - Cat & Body";
+	$title="AlfaOmega - Cat & Body";
 	$kabupaten="Atlantic";
-	$titlefooter="Aplikasi Atlantic Body Repair & Car Wash v.1";
+	$titlefooter="Aplikasi Service - Body Repair - Car Wash v.1";
 
 ?>
