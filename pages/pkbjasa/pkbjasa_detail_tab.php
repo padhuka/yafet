@@ -40,7 +40,7 @@
               </table>
              <table align="center" width="90%"><tr><td width="80%" align="right"><strong>Total&nbsp;&nbsp;&nbsp;</td><td><?php echo rupiah2($totals);?></strong></td></tr></table>
               <input type="hidden" id="hartote" value="<?php echo $totals;?>">
-        <script>$('#paketjasadetailxx2').DataTable();
+        <script>//$('#paketjasadetailxx2').DataTable();
 
          function tambahjasa(y){
               $.ajax({
