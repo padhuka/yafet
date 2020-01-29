@@ -107,6 +107,7 @@
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAddjasa').modal('hide');
                                                             $('#ModalAddjasax').modal('hide');
+                                                             $("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
                                                             $("#tablepkbjasadetail").load('pkbjasa/pkbjasa_detail_tab.php?idpkbjasa=<?php echo $idpkbjasa;?>');
                                                             $("#ModalpkbjasaDet").html(ajaxData);
                                                             $("#ModalpkbjasaDet").modal({backdrop: 'static', keyboard:false});
