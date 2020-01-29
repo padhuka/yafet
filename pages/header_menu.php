@@ -7,7 +7,7 @@
     <nav class="navbar fixed-top" style="margin-left: 0px" >
       <!-- Sidebar toggle button-->
     <div class="container">
-      <a class="navbar-brand" href="index.php">ATLANTIC
+      <a class="navbar-brand" href="index.php">Alfa Omega
         </a>
       <div class="navbar-custom-menu" style="padding: 0 0 0 0;margin: 0 auto;">
         <ul class="nav navbar-nav" style="list-style: none;padding: 0;margin: 0 auto;font-size: 1px;margin-top: 8px;">
