@@ -108,7 +108,7 @@
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAdd').modal('hide'); 
                                                              var hsl=data.trim();       
-alert(hsl);
+
                                                             //alert('pkbjasa/pkbjasa_detail.php?idpkbjasa='+hsl);
                                                              $.ajax({
                                                                 url: "pkbjasa/pkbjasa_detail.php?idpkbjasa="+hsl,
