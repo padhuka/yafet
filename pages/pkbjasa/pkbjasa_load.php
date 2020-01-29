@@ -21,7 +21,7 @@
                                     $j=1;
                                     $sqlcatat = "SELECT * FROM t_pkb_jasa p
                                     LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
-                                    WHERE p.tgl_batal =''                                    
+                                    WHERE p.tgl_batal ='0000-00-00 00:00:00'                                    
                                     ORDER BY p.tgl DESC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
