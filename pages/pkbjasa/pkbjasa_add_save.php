@@ -14,12 +14,12 @@
         //$kodeawal = 'est_'.$hrini.'_';
         $hrn2= date('dmy' , strtotime($hrini));
   //EST.BR.020818.000001
-        $kodeawal2 = 'pkbjasa_BR.';
-        $kodeawal = 'pkbjasa_BR.'.$hrn2.'.';
+        $kodeawal2 = 'PKB_GR.';
+        $kodeawal = 'PKB_GR.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_pkb_jasa WHERE id_pkb_jasa LIKE '$kodeawal2%' ORDER BY id_pkb_jasa DESC";
         $sqljur = "SELECT * FROM t_pkb_jasa ORDER BY tgl DESC";
         $resultjur = mysql_query($sqljur);
-        $jur = mysql_fetch_array($resultjur);
+        $jur = mysql_fetch_array($resultpkbjur);
         if (empty($jur['id_pkb_jasa'])){
             $kodeakhir = '000001';
         }else{
