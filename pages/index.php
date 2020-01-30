@@ -43,7 +43,8 @@
                         case 'paycuci' : include_once 'paycuci/paycuci_tab.php'; break;
                         case 'jasa' : include_once 'jasa/jasa_tab.php'; break;
                         case 'paketjasa' : include_once 'paketjasa/paketjasa_tab.php'; break;
-                        case 'pkbjasa' : include_once 'pkbjasa/pkbjasa_tab.php'; break;                        
+                        case 'pkbjasa' : include_once 'pkbjasa/pkbjasa_tab.php'; break;  
+                        case 'paypkbjasa' : include_once 'paypkbjasa/paypkbjasa_tab.php'; break;                      
                       }
         ?>
 

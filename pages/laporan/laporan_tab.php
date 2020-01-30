@@ -49,6 +49,23 @@
                             </div> </td></tr></table>
                             </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="ekspornonpkb()">Generate</span></strong></span></td>
                     </tr>
+                     <tr>
+                        <td width="30%" >&nbsp;<label style="font-size: 16px;">Penjualan PKB Jasa</label></td><td>
+                              <table border="0"><tr><td>Periode :</td><td><div class="input-group date">
+                            <div class="input-group date">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <input type="text" class="form-control pull-right" id="tglpkbjasa1" name="tglpkbjasa1" required value="<?php echo $harinow;?>">
+                            </div></td><td>-</td><td><div class="input-group date">
+                            <div class="input-group date">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <input type="text" class="form-control pull-right" id="tglpkbjasa2" name="tglpkbjasa2" required value="<?php echo $harinow;?>">
+                            </div> </td></tr></table>
+                            </td><td align="center" style="font-weight: bold; font-size: 14px;"><span style="cursor: pointer;" onclick="eksporpkbjasa()">Generate</span></strong></span></td>
+                    </tr>
                     <tr>
                         <td width="30%" >&nbsp;<label style="font-size: 16px;">Estimasi</label></td><td>
                               <table border="0"><tr><td>Periode :</td><td><div class="input-group date">
@@ -294,6 +311,8 @@
   <script type="text/javascript">
     $('#tglnonpkb1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglnonpkb2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
+     $('#tglpkbjasa1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
+    $('#tglpkbjasa2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglestimasi1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglestimasi2').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
     $('#tglcash1').datepicker({format: 'yyyy-mm-dd',autoclose: true,});
@@ -322,6 +341,11 @@
     function ekspornonpkb(){
       var x =$('#tglnonpkb1').val(); var y= $('#tglnonpkb2').val();      
       window.location = "laporan/ekspor_nonpkb.php?tgl1="+x+"&tgl2="+y;
+    }
+
+    function eksporpkbjasa(){
+      var x =$('#tglpkbjasa1').val(); var y= $('#tglpkbjasa2').val();      
+      window.location = "laporan/ekspor_pkbjasa.php?tgl1="+x+"&tgl2="+y;
     }
 
     function eksporestimasi(){
