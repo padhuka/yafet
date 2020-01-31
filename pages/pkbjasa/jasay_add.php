@@ -73,19 +73,14 @@
   function pilihjasay(){ 
     $("#ModalPilihjasay").modal({backdrop: 'static', keyboard:false});   
   }
-  function kalip(){
-    var hasil= ($("#hargapokokp").val()-($("#diskonp").val()*$("#hargapokokp").val()/100))*$("#qty").val();
-    $("#hargatotalp").val(hasil);
-    //alert(hasil);
-  }
-  
+    
 	$(document).ready(function (){                
 
-                      $("#formjasa").on('submit', function(e){
+                      $("#formjasay").on('submit', function(e){
                           e.preventDefault();
                             //alert(disposisine)        
                             var id_paket_jasa= $("#jasay").val();              ;
-                            //alert('pkbjasa/jasa_add_save.php?id_paket_jasa='+id_paket_jasa+'&idpkbjasa=<?php echo $idpkbjasa;?>');
+                            //alert('pkbjasa/jasay_add_save.php?id_jasa='+id_paket_jasa+'&idpkbjasa=<?php echo $idpkbjasa;?>');
                             //exit();
                            						$.ajax({
                                                   type: 'POST',
@@ -96,22 +91,22 @@
                                                   processData:false,
                                                   success: function(data){  
                                                       var hsl=data.trim();
-                                                      alert(hsl);                                                   
+                                                      //alert(hsl);                                                   
                                                       if (hsl=='Data Sudah Ada'){
                                                         alert(hsl);
                                                         return false;
                                                       }
-                                                      //$("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
-			                                                //$("#pkbjasajasa").load('pkbjasa/jasa_load.php?idpkbjasa=<?php echo $idpkbjasa;?>');
-                                                          //$('.modal-body').css('opacity', '');
+                                                      $("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
+			                                                $("#pkbjasa").load('pkbjasa/jasa_load.php?idpkbjasa=<?php echo $idpkbjasa;?>');
+                                                         $('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');
-                                                            /*$('#ModalAddjasa').modal('hide');
-                                                            $('#ModalAddjasax').modal('hide');
-                                                             $("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
+                                                            $('#ModalAddjasay').modal('hide');
+                                                            //$('#ModalAddjasax').modal('hide');
+                                                            $("#tablepkbjasa").load('pkbjasa/pkbjasa_load.php');
                                                             $("#tablepkbjasadetail").load('pkbjasa/pkbjasa_detail_tab.php?idpkbjasa=<?php echo $idpkbjasa;?>');
                                                             $("#ModalpkbjasaDet").html(ajaxData);
-                                                            $("#ModalpkbjasaDet").modal({backdrop: 'static', keyboard:false});*/
+                                                            $("#ModalpkbjasaDet").modal({backdrop: 'static', keyboard:false});
 			                                            }
                                                       
                                                 });

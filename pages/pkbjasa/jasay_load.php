@@ -52,11 +52,11 @@
               }
            function open_deljasa(y){
                                 $.ajax({
-                                    url: "pkbjasa/jasa_del.php?id="+y,
+                                    url: "pkbjasa/jasay_del.php?id="+y,
                                     type: "GET",
                                     success: function (ajaxData){
-                                        $("#ModalDeletejasa").html(ajaxData);
-                                        $("#ModalDeletejasa").modal({backdrop: 'static', keyboard:false});
+                                        $("#ModalDeletejasay").html(ajaxData);
+                                        $("#ModalDeletejasay").modal({backdrop: 'static', keyboard:false});
                                     }
                                 });
             };
