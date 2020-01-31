@@ -23,10 +23,10 @@
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
             <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">PKB <i class="fa fa-file-text dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
-              <li class="header"><a href="?p=pkb">PKB</a></li> 
+              <li class="header"><a href="?p=pkb">PKB BR</a></li> 
               <li class="header"><a href="?p=pkbbukatutup">Buka/Tutup PKB</a></li>   
               <li class="header"><a href="?p=nonpkb">Non PKB</a></li>
-              <li class="header"><a href="?p=pkbjasa">PKB Jasa</a></li>   
+              <li class="header"><a href="?p=pkbjasa">PKB GR</a></li>   
                           </ul>
           </li><?php } ?>
 
