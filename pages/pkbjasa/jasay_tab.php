@@ -10,7 +10,7 @@
   </div>
                 <div class="modal-content content-jasay">
                     <div class="modal-header">                        
-                        <h4 class="modal-title" id="myModalLabel">Data PKB jasay - <?php echo $idpkbjasa;?>- Paket jasay</h4>
+                        <h4 class="modal-title" id="myModalLabel">Data PKB jasay - <?php echo $idpkbjasa;?>- Jasa</h4>
                     </div>
 
                     <div class="modal-body">

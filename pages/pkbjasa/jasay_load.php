@@ -7,11 +7,10 @@
                 <thead class="thead-light">
                 <tr>
                           <th>Jasa</th>
-                          <th>Paket</th>
                           <th>Harga</th>
                           <th>Diskon</th>
                           <th>Harga</th>                          
-                          <th><button type="button" class="btn btn-default btn-circle" onclick="open_addjasa(idpkb='<?php echo $idpkb;?>');"><span>Tambah</span></button></th>
+                          <th><button type="button" class="btn btn-default btn-circle" onclick="open_addjasay(idpkb='<?php echo $idpkb;?>');"><span>Tambah</span></button></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -20,13 +19,12 @@
                                     $sqlcatat = "SELECT ep.*,p.nama AS nmjasa, j.nama AS nmpaket FROM t_pkb_jasa_detail ep
                                     LEFT JOIN t_paket_jasa j ON ep.fk_paket_jasa=j.id_paket_jasa
                                     LEFT JOIN t_jasa p ON ep.fk_jasa=p.id_jasa
-                                    WHERE fk_pkb_jasa='$idpkb' ORDER BY id ASC";
+                                    WHERE fk_pkb_jasa='$idpkb' AND fk_paket_jasa='' ORDER BY id ASC";
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
                           <td ><?php echo $catat['nmjasa'];?></td>
-                          <td ><?php echo $catat['nmpaket'];?></td>
                           <td ><?php echo rupiah2($catat['harga_jual_jasa']);?></td>
                           <td ><?php echo rupiah2($catat['harga_diskon_jasa']);?></td>
                           <td ><?php echo rupiah2($catat['harga_total_pkb_jasa']);?></td>
@@ -42,13 +40,13 @@
               <script>
             $('#pkbjasa').DataTable();
           
-           function open_addjasa(x){
+           function open_addjasay(x){
               $.ajax({
-                    url: "pkbjasa/jasa_add.php?idpkb="+x,
+                    url: "pkbjasa/jasay_add.php?idpkb="+x,
                     type: "GET",
                       success: function (ajaxData){
-                        $("#ModalAddjasa").html(ajaxData);
-                        $("#ModalAddjasa").modal({backdrop: 'static', keyboard:false});
+                        $("#ModalAddjasay").html(ajaxData);
+                        $("#ModalAddjasay").modal({backdrop: 'static', keyboard:false});
                       }
                     });
               }
