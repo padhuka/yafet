@@ -45,5 +45,8 @@
         $sqltbemp = "INSERT INTO t_pkb_jasa (id_pkb_jasa,fk_no_chasis,fk_no_mesin,fk_no_polisi,fk_customer,tgl_pkbjasa_selesai,tgl_batal) VALUES ('$kodebaru','$chasis','$mesin','$polisi','$customer','$tglselesai','$tgl_batal')";
             mysql_query($sqltbemp);
             echo $kodebaru;
+
+        $sqlstatus= "INSERT INTO t_status_pkb_jasa(fk_pkb_jasa) VALUES ('$kodebaru')";
+                mysql_query($sqlstatus);
             //echo $sqltbemp;
 ?>

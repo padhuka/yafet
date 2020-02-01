@@ -19,14 +19,23 @@
           <?php if ($seskdlvl=='Umum' || $seskdlvl=='Admin'){?>
           <li style="display: block;margin:0;padding:0;float: left;"><a href="?p=estimasi" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">Estimasi <i class="fa fa-file-text"></i></button></a></li>
           <?php }?>
+
           <?php if ($seskdlvl=='Admin'){?>
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
-            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">PKB <i class="fa fa-file-text dropdown-toggle"></i></button> </a>
+            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">PKB BR <i class="fa fa-file-text dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
-              <li class="header"><a href="?p=pkb">PKB</a></li> 
-              <li class="header"><a href="?p=pkbbukatutup">Buka/Tutup PKB</a></li>   
+              <li class="header"><a href="?p=pkb">PKB BR</a></li> 
+              <li class="header"><a href="?p=pkbbukatutup">Buka/Tutup PKB BR</a></li>    
+                          </ul>
+          </li><?php } ?>
+
+          <?php if ($seskdlvl=='Admin'){?>
+           <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
+            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">PKB GR <i class="fa fa-file-text dropdown-toggle"></i></button> </a>
+            <ul class="dropdown-menu">
+              <li class="header"><a href="?p=pkbjasa">PKB Jasa</a></li>
+              <li class="header"><a href="?p=pkbjasabukatutup">Buka/Tutup PKB</a></li>
               <li class="header"><a href="?p=nonpkb">Non PKB</a></li>
-              <li class="header"><a href="?p=pkbjasa">PKB Jasa</a></li>   
                           </ul>
           </li><?php } ?>
 
@@ -38,16 +47,26 @@
           <?php }?>
          <?php if ($seskdlvl=='Admin'){?>
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
-            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">Finance <i class="fa fa-usd dropdown-toggle"></i></button> </a>
+            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">Finance BR <i class="fa fa-usd dropdown-toggle"></i></button> </a>
             <ul class="dropdown-menu">
-              <li class="header"><a href="?p=kwitansi">Kwitansi</a></li> 
-              <li class="header"><a href="?p=kwitansior">Kwitansi OR</a></li>   
-               <li class="header"><a href="?p=cash">Cash</a></li> 
-               <li class="header"><a href="?p=bank">Bank</a></li> 
-               <li class="header"><a href="?p=paycuci">Payment Non PKB</a></li> 
-                <li class="header"><a href="?p=paypkbjasa">Payment PKB Jasa</a></li> 
-              <li class="header"><a href="?p=gatepass">Gate Pass</a></li> 
+              <li class="header"><a href="?p=kwitansi">Kwitansi BR</a></li> 
+              <li class="header"><a href="?p=kwitansior">Kwitansi OR BR</a></li>   
+               <li class="header"><a href="?p=cash">Cash BR</a></li> 
+               <li class="header"><a href="?p=bank">Bank BR</a></li> 
+              <li class="header"><a href="?p=gatepass">Gate Pass BR</a></li> 
                           </ul>
+          </li><?php } ?>
+          <?php if ($seskdlvl=='Admin'){?>
+           <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
+            <a href="#" data-toggle="dropdown" style="width: 100%;padding: 0.5em;"><button class="btn btn-default" style="padding: 5px 10px;">Finance GR <i class="fa fa-usd dropdown-toggle"></i></button> </a>
+            <ul class="dropdown-menu">
+              <li class="header"><a href="?p=kwitansigr">Kwitansi GR</a></li> 
+               <li class="header"><a href="?p=cash">Cash GR</a></li> 
+               <li class="header"><a href="?p=bank">Bank GR</a></li> 
+               <li class="header"><a href="?p=gatepass">Gate Pass GR</a></li> 
+               <li class="header"><a href="?p=paycuci">Payment Non PKB</a></li> 
+                <li class="header"><a href="?p=paypkbjasa">Payment PKB Jasa</a></li>
+          </ul>
           </li><?php } ?>
             <?php if ($seskdlvl=='Admin'){?>
            <li class="dropdown" style="display: block;margin:0;padding:0;float: left;">
