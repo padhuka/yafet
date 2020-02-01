@@ -22,7 +22,8 @@
                                     $j=1;
                                     $sqlcatat = "SELECT * FROM t_pkb_jasa p
                                     LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
-                                     LEFT JOIN (SELECT id, fk_pkb_jasa, status
+                                    LEFT JOIN ( SELECT * from t_kwitansigr where tgl_batal='0000-00-00 00:00:00') AS k ON p.id_pkb_jasa=k.fk_pkb_jasa
+                                    LEFT JOIN (SELECT id, fk_pkb_jasa, status
                                       FROM t_status_pkb_jasa
                                       WHERE id IN (
                                       SELECT MAX(id)
