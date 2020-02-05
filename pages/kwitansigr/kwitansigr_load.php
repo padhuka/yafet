@@ -27,7 +27,7 @@
                                       INNER JOIN t_customer c ON p.fk_customer=c.id_customer
                                       WHERE k.tgl_batal='0000:00:00 00:00:00'
                                       ORDER BY k.tgl_kwitansigr DESC";
-                                      echo $sqlcatat;
+                                      //echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
