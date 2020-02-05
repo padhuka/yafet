@@ -45,8 +45,12 @@
                         case 'jasa' : include_once 'jasa/jasa_tab.php'; break;
                         case 'paketjasa' : include_once 'paketjasa/paketjasa_tab.php'; break;
                         case 'pkbjasa' : include_once 'pkbjasa/pkbjasa_tab.php'; break;  
+                        case 'pkbjasabukatutup' : include_once 'pkbjasastatus/pkbjasa_tab.php'; break;
                         case 'paypkbjasa' : include_once 'paypkbjasa/paypkbjasa_tab.php'; break;                      
                         case 'kwitansigr' : include_once 'kwitansigr/kwitansigr_tab.php'; break;
+                        case 'cashgr' : include_once 'cashgr/cashgr_tab.php'; break;
+                        case 'bankgr' : include_once 'bankgr/bankgr_tab.php'; break;
+                        case 'gatepassgr' : include_once 'gatepassgr/gatepassgr_tab.php'; break;
                       }
         ?>
 

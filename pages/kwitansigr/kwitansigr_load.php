@@ -2,19 +2,19 @@
             include_once '../../lib/config.php';
             include_once '../../lib/fungsi.php';
       ?>
-      <table id="tablekwitansi" class="table table-condensed table-bordered table-striped table-hover">
+      <table id="tablekwitansigr" class="table table-condensed table-bordered table-striped table-hover">
                 <thead class="thead-light">
                 <tr>
                           <th>No</th>
-                          <th>No Kwitansi</th>
+                          <th>No kwitansigr</th>
                           <th>Tanggal</th>
                           <th>No PKB</th>
                           <th>No Chasis</th>
                           <th>No Polisi</th>
                           <th>Nama Customer</th>
                           <th>Total</th>
-                          <th>PPN</th>
-                           <th>Total Bayar</th>
+                          <!--<th>PPN</th>
+                           <th>Total Bayar</th>-->
                          
                           <th><button type="button" class="btn btn-default btn-circle" onclick="open_add();"><span>Tambah</span></button></th>
                 </tr>
@@ -22,53 +22,54 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT k.no_kwitansi, k.tgl_kwitansi,p.id_pkb,p.kategori,p.fk_no_chasis,p.fk_no_mesin,p.fk_no_polisi,c.nama,k.total_kwitansi,k.total_ppn_kwitansi,k.total_payment,k.tgl_batal FROM t_kwitansi k 
-                                      INNER JOIN t_pkb p ON k.fk_pkb=p.id_pkb 
+                                    $sqlcatat = "SELECT k.no_kwitansigr, k.tgl_kwitansigr,p.id_pkb_jasa,p.kategori,p.fk_no_chasis,p.fk_no_mesin,p.fk_no_polisi,c.nama,k.total_kwitansigr,k.total_ppn_kwitansigr,k.total_paymentgr,k.tgl_batal FROM t_kwitansigr k 
+                                      INNER JOIN t_pkb_jasa p ON k.fk_pkb_jasa=p.id_pkb_jasa 
                                       INNER JOIN t_customer c ON p.fk_customer=c.id_customer
                                       WHERE k.tgl_batal='0000:00:00 00:00:00'
-                                      ORDER BY k.tgl_kwitansi DESC";
+                                      ORDER BY k.tgl_kwitansigr DESC";
+                                      //echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>  
                           <td><?php echo $j++;?></td>
-                          <td><button type="button" class="btn btn-link" id="<?php echo $catat['no_kwitansi']; ?>" onclick="open_kwitansi(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span><?php echo ($catat['no_kwitansi']);?></span></button></td>
+                          <td><button type="button" class="btn btn-link" id="<?php echo $catat['no_kwitansigr']; ?>" onclick="open_kwitansigr(idkwitansigr='<?php echo $catat['no_kwitansigr']; ?>');"><span><?php echo ($catat['no_kwitansigr']);?></span></button></td>
                        
-                          <td ><?php echo date('d-m-Y',strtotime($catat['tgl_kwitansi']));?></td>
-<!--                           <td ><?php echo $catat['id_pkb'];?></td> --> 
-                      <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_pkb']; ?>" onclick="open_pkb(idpkb='<?php echo $catat['id_pkb']; ?>');"><span><?php echo ($catat['id_pkb']);?></span></button></td>
+                          <td ><?php echo date('d-m-Y',strtotime($catat['tgl_kwitansigr']));?></td>
+<!--                           <td ><?php echo $catat['id_pkb_jasa'];?></td> --> 
+                      <td><button type="button" class="btn btn-link" id="<?php echo $catat['id_pkb_jasa']; ?>" onclick="open_pkb(idpkb='<?php echo $catat['id_pkb_jasa']; ?>');"><span><?php echo ($catat['id_pkb_jasa']);?></span></button></td>
                    
                           <td ><?php echo $catat['fk_no_chasis'];?></td>
                           <td ><?php echo $catat['fk_no_polisi'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                          <td ><?php echo rupiah2($catat['total_kwitansi']);?></td>
-                          <td ><?php echo rupiah2($catat['total_ppn_kwitansi']);?></td>
-                          <td ><?php echo rupiah2($catat['total_payment']);?></td>
+                          <td ><?php echo rupiah2($catat['total_kwitansigr']);?></td>
+                         <!-- <td ><?php //echo rupiah2($catat['total_ppn_kwitansigr']);?></td>
+                          <td ><?php //echo rupiah2($catat['total_payment']);?></td>-->
                           <td >
-                                        <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansi']; ?>" onclick="cetak_kw(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span>Cetak</span></button>
+                                        <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansigr']; ?>" onclick="cetak_kw(idkwitansigr='<?php echo $catat['no_kwitansigr']; ?>');"><span>Cetak</span></button>
                                         <?php 
                                         #CASH
-                                            $sqlkwcash="SELECT no_bukti FROM t_cash WHERE no_ref='$catat[no_kwitansi]' AND tipe_transaksi='Pelunasan' AND tgl_batal<>'0000-00-00 00:00:00'";
+                                            $sqlkwcash="SELECT no_bukti FROM t_cashgr WHERE no_ref='$catat[no_kwitansigr]' AND tipe_transaksi='Pelunasan' AND tgl_batal<>'0000-00-00 00:00:00'";
                                             $hkwcash=mysql_fetch_array(mysql_query($sqlkwcash));
                                             $lunas=$hkwcash['no_bukti'];
 
-                                           $sqllunas="SELECT no_bukti FROM t_cash WHERE no_ref='$catat[no_kwitansi]'";
+                                           $sqllunas="SELECT no_bukti FROM t_cashgr WHERE no_ref='$catat[no_kwitansigr]'";
                                            $hcekcash=mysql_fetch_array(mysql_query($sqllunas));
                                            $ada=$hcekcash['no_bukti'];
                                         #BANK
-                                           $sqlkwcash2="SELECT no_bukti FROM t_cash WHERE no_ref='$catat[no_kwitansi]' AND tipe_transaksi='Pelunasan' AND tgl_batal<>'0000-00-00 00:00:00'";
+                                           $sqlkwcash2="SELECT no_bukti FROM t_cashgr WHERE no_ref='$catat[no_kwitansigr]' AND tipe_transaksi='Pelunasan' AND tgl_batal<>'0000-00-00 00:00:00'";
                                             $hkwcash2=mysql_fetch_array(mysql_query($sqlkwcash2));
                                             $lunas2=$hkwcash2['no_bukti'];
 
-                                           $sqllunas2="SELECT no_bukti FROM t_cash WHERE no_ref='$catat[no_kwitansi]'";
+                                           $sqllunas2="SELECT no_bukti FROM t_cashgr WHERE no_ref='$catat[no_kwitansigr]'";
                                            $hcekcash2=mysql_fetch_array(mysql_query($sqllunas2));
                                            $ada2=$hcekcash2['no_bukti'];
 
                                            if($ada || $ada2){if($lunas || $lunas2){
                                         ?>
-                                         <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansi']; ?>" onclick="open_del(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span>Batal</span></button>
+                                         <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansigr']; ?>" onclick="open_del(idkwitansigr='<?php echo $catat['no_kwitansigr']; ?>');"><span>Batal</span></button>
                                          <?php } }else{?>
-                                          <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansi']; ?>" onclick="open_del(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span>Batal</span></button>
+                                          <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansigr']; ?>" onclick="open_del(idkwitansigr='<?php echo $catat['no_kwitansigr']; ?>');"><span>Batal</span></button>
                                         <?php  }?>
 
                                     </td>
@@ -77,7 +78,7 @@
                 </tfoot>
               </table>
               <script>
-             $('#tablekwitansi').DataTable({
+             $('#tablekwitansigr').DataTable({
               "columnDefs": [
                   { "orderable": false, "targets": 10 }
                 ]
@@ -85,7 +86,7 @@
            
            function open_add(){
               $.ajax({
-                    url: "kwitansi/kwitansi_add.php",
+                    url: "kwitansigr/kwitansigr_add.php",
                     type: "GET",
                       success: function (ajaxData){
                         $("#ModalAdd").html(ajaxData);
@@ -96,7 +97,7 @@
             
              function open_del(x){
                                 $.ajax({
-                                    url: "kwitansi/kwitansi_del.php?idkwitansi="+x,
+                                    url: "kwitansigr/kwitansigr_del.php?idkwitansigr="+x,
                                     type: "GET",
                                     success: function (ajaxData){
                                         $("#ModalDelete").html(ajaxData);
@@ -107,7 +108,7 @@
                          
             function open_pkb(z){
                               $.ajax({
-                                  url: "pkb/pkb_show.php?idpkb="+z,
+                                  url: "pkbjasa/pkbjasa_show.php?idpkb="+z,
                                   type: "GET",
                                   success: function (ajaxData){
                                       $("#ModalShow").html(ajaxData);
@@ -117,7 +118,7 @@
             };
             function cetak_kw(q){
                               $.ajax({
-                                  url: "kwitansi/kwitansi_print.php?no_kwitansi="+q,
+                                  url: "kwitansigr/kwitansigr_print.php?no_kwitansigr="+q,
                                   type: "GET",
                                   success: function (ajaxData){
                                       $("#ModalKwPrint").html(ajaxData);

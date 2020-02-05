@@ -4,12 +4,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <div class="title-header">
-    Data kwitansi GR
+    Data PKB Jasa Buka / Tutup
     </div>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">kwitansi GR/li>
+        <li class="active">Data PKB Jasa</li>
       </ol>
     </section>
 
@@ -23,7 +23,7 @@
             </div>
              /.box-header -->
             <div class="box-body">
-              <div id="kwitansigr">
+              <div id="tablepkbjasa">
               </div>
             </div>
             <!-- /.box-body -->
@@ -36,15 +36,23 @@
     </section>
     <!-- /.content -->
   </div>
-        <div id="ModalAdd" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        
         <div id="ModalShow" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-         <div id="ModalEdit" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-         <div id="ModalDelete" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-         <div id="ModalkwitansigrDet" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-         <div id="ModalKwPrint" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+         <div id="ModalTutup" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+         <div id="ModalBuka" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
         <script type="text/javascript">
             $(document).ready(function (){
-                 $("#kwitansigr").load('kwitansigr/kwitansigr_load.php');
+                 $("#tablepkbjasa").load('pkbjasastatus/pkbjasa_load.php');
             });
         </script>
+
+
+<style type="text/css">
+  .title-header {
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-family: monospace;
+  }
+</style>

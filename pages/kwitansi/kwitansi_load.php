@@ -56,15 +56,16 @@
                                            $hcekcash=mysql_fetch_array(mysql_query($sqllunas));
                                            $ada=$hcekcash['no_bukti'];
                                         #BANK
-                                           $sqlkwcash2="SELECT no_bukti FROM t_cash WHERE no_ref='$catat[no_kwitansi]' AND tipe_transaksi='Pelunasan' AND tgl_batal<>'0000-00-00 00:00:00'";
+                                           $sqlkwcash2="SELECT no_bukti FROM t_bank WHERE no_ref='$catat[no_kwitansi]' AND tipe_transaksi='Pelunasan' AND tgl_batal<>'0000-00-00 00:00:00'";
                                             $hkwcash2=mysql_fetch_array(mysql_query($sqlkwcash2));
                                             $lunas2=$hkwcash2['no_bukti'];
 
-                                           $sqllunas2="SELECT no_bukti FROM t_cash WHERE no_ref='$catat[no_kwitansi]'";
+                                           $sqllunas2="SELECT no_bukti FROM t_bank WHERE no_ref='$catat[no_kwitansi]'";
                                            $hcekcash2=mysql_fetch_array(mysql_query($sqllunas2));
                                            $ada2=$hcekcash2['no_bukti'];
 
-                                           if($ada || $ada2){if($lunas || $lunas2){
+                                           if($ada || $ada2){
+                                             if($lunas || $lunas2){
                                         ?>
                                          <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansi']; ?>" onclick="open_del(idkwitansi='<?php echo $catat['no_kwitansi']; ?>');"><span>Batal</span></button>
                                          <?php } }else{?>
