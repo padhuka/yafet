@@ -24,20 +24,16 @@
                 <tbody>
                 <?php
                                    $j=1;
-                                   $sqlcatat = "SELECT k.no_kwitansigr as no_kwitansigr,(total_payment-IFNULL(wo.nilai_kwitansigr,0)) as nilai, cashgr.no_ref,cashgr.titip_cashgr,bank.titip_bank FROM t_kwitansigr k
+                                   $sqlcatat = "SELECT k.no_kwitansigr as no_kwitansigr,total_kwitansigr as nilai, cash.no_ref,cash.titip_cashgr,bank.titip_bank 
+                                      FROM t_kwitansigr k
                                     LEFT JOIN (SELECT no_bukti, no_ref, sum(total) as titip_cashgr
                                     FROM t_cashgr where tipe_transaksi='titipan'
-                                    GROUP BY no_ref)AS cashgr ON cashgr.no_ref=k.fk_pkb_jasa
+                                    GROUP BY no_ref)AS cash ON cash.no_ref=k.fk_pkb_jasa
                                     LEFT JOIN (SELECT no_bukti, no_ref, sum(total) as titip_bank
-                                    FROM t_bank where tipe_transaksi='titipan'  
-                                    GROUP BY no_ref)AS bank ON bank.no_ref=k.fk_pkb_jasa
-                                      LEFT JOIN (SELECT pkbjasa.id_pkb_jasa,es.nilai_kwitansigr from t_pkb_jasa pkbjasa
-                                      on wo.id_pkb_jasa=k.fk_pkb_jasa            
-                                            WHERE k.tgl_batal='0000-00-00 00:00:00'
-                                    UNION                             
-                                    SELECT ko.no_kwitansigr_or as no_kwitansigr ,ko.nilai_kwitansigr as nilai, s.no_ref,s.total as titip_cashgr,bk.total as titip_bank from t_kwitansigr_or ko
-                                    WHERE ko.tgl_batal='0000-00-00 00:00:00'";
-                                    echo $sqlcatat;
+                                    FROM t_bankgr where tipe_transaksi='titipan'  
+                                    GROUP BY no_ref)AS bank ON bank.no_ref=k.fk_pkb_jasa           
+                                            WHERE k.tgl_batal='0000-00-00 00:00:00'";
+                                  //  echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
