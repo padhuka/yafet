@@ -54,10 +54,9 @@
 
         
         //$sqltbemp = "INSERT INTO t_kwitansigr (no_kwitansigr,fk_pkb,total_gross_panel,total_gross_part,total_diskon_panel,total_diskon_part,total_netto_panel,total_netto_part,total_ppn_kwitansigr,total_kwitansigr,total_payment) VALUES ('$kodebaru','$idpkbjasa','$grosspanel','$grosspart','$diskonpanel','$diskonpart','$nettopanel','$nettopart',$ppn,'$nettototal',$payment)";
-           $sqltbemp = "INSERT INTO t_kwitansigr (no_kwitansigr,fk_pkb_jasa,total_kwitansigr) VALUES ('$kodebaru','$idpkbjasa','$nettototal')";
+           $sqltbemp = "INSERT INTO t_kwitansigr (no_kwitansigr,fk_pkb_jasa,total_kwitansigr,tgl_batal) VALUES ('$kodebaru','$idpkbjasa','$nettototal','0000-00-00 00:00:00')";
 
             mysql_query($sqltbemp);
-         
 
         $updatestatus = "INSERT INTO t_status_pkb_jasa (fk_pkb_jasa,status) VALUES ('$idpkbjasa','CETAK KWITANSI')";
         mysql_query($updatestatus);

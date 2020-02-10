@@ -19,20 +19,38 @@
                   $sqlest= "SELECT *, B.nama AS nmjasa, C.nama AS nmpaket FROM t_pkb_jasa_detail A
                   LEFT JOIN t_jasa B ON B.id_jasa=A.fk_jasa
                   LEFT JOIN t_paket_jasa C ON C.id_paket_jasa=A.fk_paket_jasa
-                  WHERE A.fk_pkb_jasa = '$idpkbjasa'";
+                  WHERE A.fk_pkb_jasa = '$idpkbjasa'  AND A.fk_paket_jasa<>''";
                   //echo $sqlest;
                   $qest=mysql_query($sqlest);
                   $totals=0;
                   while($hest= mysql_fetch_array($qest)){;
                     //$totals=$totals+$hest['harga_jual_paket_jasa'];
-                    $totals=$hest['harga_jual_paket_jasa']+$totals;
+                    $totals=$hest['harga_total_paket_jasa']+$totals;
                 ?>              
                         <tr>
                           <td><?php echo $hest['nmjasa'];?></td>
                           <td><?php echo $hest['nmpaket'];?></td>
-                          <td><?php echo rupiah2($hest['harga_jual_jasa']);?></td>
+                          <td><?php echo rupiah2($hest['harga_jual_paket_jasa']);?></td>
                           <td><?php echo rupiah2($hest['diskon_paket_jasa']);?></td>
-                          <td><?php echo rupiah2($hest['harga_jual_paket_jasa']);?></td>                         
+                          <td><?php echo rupiah2($hest['harga_total_paket_jasa']);?></td>                         
+                        </tr>    
+                  <?php } ?>   
+                   <?php 
+                  $sqlest= "SELECT *, B.nama AS nmjasa FROM t_pkb_jasa_detail A
+                  LEFT JOIN t_jasa B ON B.id_jasa=A.fk_jasa
+                  WHERE A.fk_pkb_jasa = '$idpkbjasa' AND A.fk_paket_jasa=''";
+                  //echo $sqlest;
+                  $qest=mysql_query($sqlest);
+                  while($hest= mysql_fetch_array($qest)){;
+                    //$totals=$totals+$hest['harga_jual_paket_jasa'];
+                    $totals=$hest['harga_total_jasa']+$totals;
+                ?>              
+                        <tr>
+                          <td><?php echo $hest['nmjasa'];?></td>
+                          <td></td>
+                          <td><?php echo rupiah2($hest['harga_jual_jasa']);?></td>
+                          <td><?php echo rupiah2($hest['diskon_jasa']);?></td>
+                          <td><?php echo rupiah2($hest['harga_total_jasa']);?></td>                         
                         </tr>    
                   <?php } ?>       	
                         

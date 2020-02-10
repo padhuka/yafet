@@ -42,12 +42,13 @@
                  <td class="sorting_1" width="15%">Diskon</td>
                   <td width="30%">
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="diskonp" name="diskonp" required onchange="kalip();" style="width:100%;" readonly>                           
+                        <input type="text" class="form-control" id="diskonp" name="diskonp" required onchange="kalip();" style="width:100%;">                           
                     </div>%
                   </td>
                   <td  width="10%">Harga Total</td>
                   <td  width="50%"><div class="col-sm-10">
                      <input type="text" class="form-control" id="hargatotalp" name="hargatotalp" required readonly style="width:100%;">
+                     <input type="hidden" class="form-control" id="qty" name="qty" required readonly style="width:100%;" value="1">
                     </div>                    
                   </td>
                </tr>               

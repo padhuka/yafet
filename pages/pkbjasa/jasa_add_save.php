@@ -19,12 +19,12 @@
                       $qpaketdata= mysql_query($spaketdata);
                       while($hpdata=mysql_fetch_array($qpaketdata)){
                         //$sqltbemp = "INSERT INTO t_pkb_jasa_detail (fk_pkb_jasa,fk_paket_jasa,fk_jasa,harga_jual_jasa,diskon_jasa,harga_diskon_jasa,harga_jual_paket_jasa,diskon_paket_jasa,harga_diskon_paket_jasa,harga_total_pkb_jasa)
-                        $sqltbemp = "INSERT INTO t_pkb_jasa_detail (fk_pkb_jasa,fk_paket_jasa,fk_jasa,harga_jual_jasa,diskon_jasa,harga_diskon_jasa,harga_jual_paket_jasa,diskon_paket_jasa,harga_diskon_paket_jasa,harga_total_pkb_jasa)
-                         VALUES ('$idpkbjasa','$id_paket_jasa','$hpdata[fk_jasa]','$hpdata[harga_jual_paket_jasa]','$hpdata[diskon_paket_jasa]','$hpdata[harga_diskon_paket_jasa]','$hpdata[harga_total_paket_jasa]','','','')";
+                        $sqltbemp = "INSERT INTO t_pkb_jasa_detail (fk_pkb_jasa,fk_paket_jasa,fk_jasa,harga_jual_jasa,diskon_jasa,harga_diskon_jasa,harga_jual_paket_jasa,diskon_paket_jasa,harga_diskon_paket_jasa,harga_total_paket_jasa,harga_total_pkb_jasa)                         
+                         VALUES ('$idpkbjasa','$id_paket_jasa','$hpdata[fk_jasa]','','','','$hpdata[harga_jual_paket_jasa]','$hpdata[diskon_paket_jasa]','$hpdata[harga_diskon_paket_jasa]','$hpdata[harga_total_paket_jasa]','')";
                           mysql_query($sqltbemp);
                       }
 
-                      $sqljasa= "SELECT sum(harga_jual_paket_jasa) AS totpaketjasa FROM t_pkb_jasa_detail WHERE fk_pkb_jasa = '$idpkbjasa'";
+                      $sqljasa= "SELECT (sum(harga_total_paket_jasa)+sum(harga_total_jasa)) AS totpaketjasa FROM t_pkb_jasa_detail WHERE fk_pkb_jasa = '$idpkbjasa'";
                       $hjasa= mysql_fetch_array(mysql_query($sqljasa));
                       $totjasa=$hjasa['totpaketjasa'];
                       //echo $sqljasa;

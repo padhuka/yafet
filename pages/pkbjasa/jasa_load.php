@@ -27,9 +27,9 @@
                         <tr>
                           <td ><?php echo $catat['nmjasa'];?></td>
                           <td ><?php echo $catat['nmpaket'];?></td>
-                          <td ><?php echo rupiah2($catat['harga_jual_jasa']);?></td>
-                          <td ><?php echo rupiah2($catat['harga_diskon_jasa']);?></td>
-                          <td ><?php echo rupiah2($catat['harga_total_pkb_jasa']);?></td>
+                          <td ><?php echo rupiah2($catat['harga_jual_paket_jasa']);?></td>
+                          <td ><?php echo rupiah2($catat['harga_diskon_paket_jasa']);?></td>
+                          <td ><?php echo rupiah2($catat['harga_total_paket_jasa']);?></td>
                           <td >
                               <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['id'];?>" onclick="open_deljasa(id='<?php echo $catat['id'];?>');"><span>Hapus</span></button>
                                       

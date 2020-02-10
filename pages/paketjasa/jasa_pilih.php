@@ -70,7 +70,7 @@
                   //alert(c);
                               $("#jasa").val(a);
                               $("#jasanm").val(b);
-                              $("#hargapokokp").val(c);
+                              $("#hargapokokp").val(d);
                               $("#hargatotalp").val(d);                              
                               $("#diskonp").val(e);
                               $("#qty").val('1');

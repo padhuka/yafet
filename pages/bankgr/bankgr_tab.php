@@ -4,12 +4,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
     <div class="title-header">
-    Data Cash GR
+    Data bank GR
     </div>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
-        <li class="active">Data Cash GR</li>
+        <li class="active">Data bank GR</li>
       </ol>
     </section>
 
@@ -23,7 +23,7 @@
             </div>
              /.box-header -->
             <div class="box-body">
-              <div id="tablecashgr">
+              <div id="tablebankgr">
               </div>
             </div>
             <!-- /.box-body -->
@@ -39,11 +39,11 @@
         <div id="Modalpkb_jasaAdd" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
          <div id="ModalBatal" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
        
-         <div id="ModalcashgrPrint" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+         <div id="ModalbankgrPrint" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
         <script type="text/javascript">
             $(document).ready(function (){
-                 $("#tablecashgr").load('cashgr/cashgr_load.php');
+                 $("#tablebankgr").load('bankgr/bankgr_load.php');
             });
         </script>
 

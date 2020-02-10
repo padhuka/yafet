@@ -9,7 +9,7 @@
                 <tr>
                           <th>Nama</th>
                           <th>Harga</th>
-                          <th>Diskon</th>
+                          <th>Diskon(%)</th>
                           <th>Sub Total</th>
                           <th><button type="button" class=" btn btn-default btn-circle" name="jasa" onclick="tambahjasa('<?php echo $id_paket_jasa;?>');">&nbsp;Tambah&nbsp;</button></th>                          
                 </tr>

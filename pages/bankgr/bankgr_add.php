@@ -12,11 +12,11 @@
   </div>
                 <div class="modal-content" style="height: 230px;">
                     <div class="modal-header">                        
-                        <h4 class="modal-title" id="myModalLabel">Tambah Data Cash GR</h4>
+                        <h4 class="modal-title" id="myModalLabel">Tambah Data bank GR</h4>
                     </div>
                   
                     <div class="modal-body">
-                    <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formcashgr">
+                    <form class="form-horizontal" enctype="multipart/form-data" novalidate id="formbankgr">
                       <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                     <thead>
                     
@@ -93,8 +93,8 @@
               
         </div>
 </div>
-<?php include_once 'cashgr_pkb_jasa_tab.php';?>
-<?php include_once 'cashgr_kwitansigr_tab.php';?>
+<?php include_once 'bankgr_pkb_jasa_tab.php';?>
+<?php include_once 'bankgr_kwitansigr_tab.php';?>
 
 <script type="text/javascript">
   //$('#showkwitansigr').hide();
@@ -125,15 +125,15 @@
       });
 
   function selectKwi(){ 
-    $("#Modalcashgrkwitansigr").modal({backdrop: 'static',keyboard:false});   
+    $("#Modalbankgrkwitansigr").modal({backdrop: 'static',keyboard:false});   
 
   }
   function selectpkb_jasa(){ 
-    $("#Modalcashgrpkb_jasa").modal({backdrop: 'static',keyboard:false});   
+    $("#Modalbankgrpkb_jasa").modal({backdrop: 'static',keyboard:false});   
   }
 
   $(document).ready(function (){
-                      $("#formcashgr").on('submit', function(e){
+                      $("#formbankgr").on('submit', function(e){
                           var chs= $("#chasis").val();
                           var km=  $("#kmmasuk").val();
                           if (chs==''){
@@ -144,13 +144,13 @@
                             //alert(disposisine)                       ;
                                       $.ajax({
                                                   type: 'POST',
-                                                  url: 'cashgr/cashgr_add_save.php',
+                                                  url: 'bankgr/bankgr_add_save.php',
                                                   data: new FormData(this),
                                                   contentType: false,
                                                   cache: false,
                                                   processData:false,
                                                   success: function(data){
-                                                        $("#tablecashgr").load('cashgr/cashgr_load.php');
+                                                        $("#tablebankgr").load('bankgr/bankgr_load.php');
                                                         $('.modal-body').css('opacity', '');
 
                                                             alert('Data Berhasil Disimpan');

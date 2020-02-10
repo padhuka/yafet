@@ -23,9 +23,9 @@
         $keterangan = trim($_POST['keterangan']); 
         
         $hrn2= date('dmy' , strtotime($hrini));
-        $kodeawal2 = 'KM_GR.';
-        $kodeawal = 'KM_GR.'.$hrn2.'.';
-        $sqljur = "SELECT * FROM t_cashgr ORDER BY tgl DESC";
+        $kodeawal2 = 'BM_GR.';
+        $kodeawal = 'BM_GR.'.$hrn2.'.';
+        $sqljur = "SELECT * FROM t_bankgr ORDER BY tgl DESC";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
         if (empty($jur['no_bukti'])){
@@ -51,7 +51,7 @@
         $kodebaru = $kodeawal.$kodeakhir;   
 
         
-            $sqltbemp = "INSERT INTO t_cashgr (no_bukti,tgl_transaksi,tipe_transaksi,diterima_dari,no_ref,total,keterangan) VALUES ('$kodebaru','$tgltransaksi','$tipetransaksi','$diterimadari','$noref','$total','$keterangan')";
+            $sqltbemp = "INSERT INTO t_bankgr (no_bukti,tgl_transaksi,tipe_transaksi,diterima_dari,no_ref,total,keterangan) VALUES ('$kodebaru','$tgltransaksi','$tipetransaksi','$diterimadari','$noref','$total','$keterangan')";
            // echo "$sqltbemp";
             mysql_query($sqltbemp);
             //echo $kodebaru.'-'.$warnanm;    
