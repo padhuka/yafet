@@ -58,10 +58,10 @@
 
 
         if ($tipetransaksi == 'Pelunasan') {
-            $getIdpkb_jasa = "SELECT fk_pkb_jasa_jasa FROM t_kwitansigr where no_kwitansi='$noref'";
+            $getIdpkb_jasa = "SELECT fk_pkb_jasa FROM t_kwitansigr where no_kwitansigr='$noref'";
             $result = mysql_fetch_array(mysql_query($getIdpkb_jasa));
-            $pkb_jasa = $result['fk_pkb_jasa_jasa'];
-            $updatestatus = "INSERT INTO t_status_pkb_jasa (fk_pkb_jasa_jasa,status) VALUES ('$pkb_jasa','LUNAS')";
+            $pkb_jasa = $result['fk_pkb_jasa'];
+            $updatestatus = "INSERT INTO t_status_pkb_jasa (fk_pkb_jasa,status) VALUES ('$pkb_jasa','LUNAS')";
             mysql_query($updatestatus);  
         }
 ?>
