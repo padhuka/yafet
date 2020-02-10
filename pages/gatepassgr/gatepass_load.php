@@ -8,7 +8,7 @@
                           <th>No</th>
                           <th>No Gate Pass</th>
                           <th>Tgl</th>
-                          <th>No PKB</th>
+                          <th>No PKB Jasa</th>
                           <th>Status</th>
                         
                      
