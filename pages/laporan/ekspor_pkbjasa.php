@@ -1,9 +1,9 @@
 <?php
 // Fungsi header dengan mengirimkan raw data excel
-header("Content-type: application/vnd-ms-excel");
+//header("Content-type: application/vnd-ms-excel");
  
 // Mendefinisikan nama file ekspor "hasil-export.xls"
-header("Content-Disposition: attachment; filename=reportpkbjasa.xls");
+//header("Content-Disposition: attachment; filename=reportpkbjasa.xls");
  
 // Tambahkan table
 //include 'data.php';
@@ -28,7 +28,7 @@ header("Content-Disposition: attachment; filename=reportpkbjasa.xls");
                                     </td>                                   
                                   </tr>                                   
                                 </table>
-                                    <span style="font-size: 20px;font-weight: bold;"><center>Laporan Penjualan PKB Jasa</center></span>
+                                    <span style="font-size: 20px;font-weight: bold;"><center>Laporan PKB</center></span>
                                      <span style="font-size: 20px;font-weight: bold;"><center> Per Tgl <?php echo date('d-m-Y' , strtotime($_GET['tgl1']));echo ' s/d '; echo date('d-m-Y' , strtotime($_GET['tgl2'])); ?></center></span>
                                 <br>
       <table id="tablepkb1" class="table table-condensed table-bordered table-striped table-hover">
@@ -40,8 +40,8 @@ header("Content-Disposition: attachment; filename=reportpkbjasa.xls");
                           <th>No Chasis</th>
                           <th>No Mesin</th>
                           <th>No Polisi</th>
-                          <th>Total</th>
-
+                          <th>Nama Customer</th>
+                          <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -51,9 +51,11 @@ header("Content-Disposition: attachment; filename=reportpkbjasa.xls");
                                     $tgl1=$_GET['tgl1'];
                                     $tgl2=$_GET['tgl2'];
                                     $j=1;
-                                    $sqlcatat = "SELECT * FROM t_pkb_jasa
-                                   WHERE tgl_batal='0000-00-00 00:00:00' AND substring(tgl,1,10)>='$tgl1' AND  substring(tgl,1,10)<='$tgl2' 
-                                   ORDER BY id_pkb_jasa DESC";
+                                  $sqlcatat = "SELECT p.*,c.nama,k.no_kwitansigr FROM t_pkb_jasa p
+                                   LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
+                                   LEFT JOIN t_kwitansigr k ON p.id_pkb_jasa=k.fk_pkb_jasa
+                                   WHERE p.tgl_batal='0000-00-00 00:00:00' AND substring(tgl,1,10)>='$tgl1' AND  substring(tgl,1,10)<='$tgl2' 
+                                   ORDER BY p.id_pkb_jasa DESC";
                                    	$rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
@@ -64,7 +66,8 @@ header("Content-Disposition: attachment; filename=reportpkbjasa.xls");
                           <td><?php echo $catat['fk_no_chasis'];?></td>
                           <td><?php echo $catat['fk_no_mesin'];?></td>                          
                           <td><?php echo $catat['fk_no_polisi'];?></td>
-                          <td><?php echo rupiah2($catat['total_netto_harga_jasa']);?></td>
+                          <td><?php echo $catat['nama'];?></td>
+                          <td><?php echo $catat['status_pkb_jasa'];?></td>
                         </tr>
                     <?php }?>
                 </tfoot>
