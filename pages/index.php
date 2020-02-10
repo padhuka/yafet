@@ -50,7 +50,7 @@
                         case 'kwitansigr' : include_once 'kwitansigr/kwitansigr_tab.php'; break;
                         case 'cashgr' : include_once 'cashgr/cashgr_tab.php'; break;
                         case 'bankgr' : include_once 'bankgr/bankgr_tab.php'; break;
-                        case 'gatepassgr' : include_once 'gatepassgr/gatepassgr_tab.php'; break;
+                        case 'gatepassgr' : include_once 'gatepassgr/gatepass_tab.php'; break;
                       }
         ?>
 
