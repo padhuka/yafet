@@ -2,9 +2,9 @@
 	// DATA BASE
 	$user="root"; // userid untuk akses database anda
 	$db="yafetdb"; // nama database anda.
-	$passsw=""; // password untuk akses database anda
+	$passsw="s0l0b4ru"; // password untuk akses database anda
 	// baris dibawah ini jangan diedit
-	$host="localhost:3304";
+	$host="localhost";
 
 	//WEB
 	$title="AlfaOmega - Cat & Body";
