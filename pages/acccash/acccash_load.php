@@ -356,22 +356,5 @@
             };
       </script>
 
-<style type="text/css">
-  .table {
-    border-spacing: 0;
-    border-collapse: collapse;
-    margin-bottom: 0px;
-  }
-  .thead-light{
-    background-color: lightgrey;
-  }
-  .btn {
-    font-weight: bold;
-    padding-bottom: 0px;
-    padding-top: 3px;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
-</style>
 
 <script type="text/javascript" src="../lib/ribuan.js"></script>

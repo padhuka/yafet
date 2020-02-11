@@ -57,26 +57,3 @@
                               
                       }; 
               </script>
-
-  <style type="text/css">
-  .modal-header {
-    padding-top: 15px;padding-bottom: 15px;
-  }
-  .title-header {
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-family: monospace;
-  }
-  .modal-content {
-    height: 650px;
-  }
-  .row {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top:10px;
-  }
-  .modal-title {
-    padding-top: 5px;padding-bottom: 5px;
-  }
-</style>

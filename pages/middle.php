@@ -120,22 +120,6 @@
   </div>
        
 <style type="text/css">
-  .btn {
-    font-weight: bold;
-    padding-bottom: 0px;
-    padding-top: 3px;
-    padding-left: 4px;
-    padding-right: 4px;
-  }
-  .title-header {
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-family: monospace;
-  }
-  .modal-title {
-    text-align: center;
-  }
   #flowchart td:not(:empty){
   font-size:12px;
   letter-spacing:1px;

@@ -55,35 +55,3 @@
            </div>
            </div>      
      
-
-<style type="text/css">
-  .modal-footer {
-    padding-top: 10px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .modal-title {
-    font-style: italic;
-    background-color: lightcoral;
-    text-align: center;
-    font-weight: bold;
-  }
-  .total {
-  font-weight: bold;border-top:   inset;
-  }
-    .but {
-    text-align: center;
-  }
-  .modal-title-detail {
-    font-style: italic;
-    background-color: lightblue;
-    text-align: center;
-    font-weight: bold;
-  }
-  .modal-dialog {
-    margin-bottom: 0px;
-    border: 3px;
-    width: 800px;
-  }
-</style>

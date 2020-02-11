@@ -52,15 +52,3 @@
                            
                       }; 
               </script>
-
-  <style type="text/css">
-  .row {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top:10px;
-  }
-  .modal-title {
-    padding-top: 5px;padding-bottom: 5px;
-  }
-</style>
-

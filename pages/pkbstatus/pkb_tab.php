@@ -46,13 +46,3 @@
                  $("#tablepkb").load('pkbstatus/pkb_load.php');
             });
         </script>
-
-
-<style type="text/css">
-  .title-header {
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-family: monospace;
-  }
-</style>
