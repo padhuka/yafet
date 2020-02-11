@@ -42,7 +42,7 @@
                           <td ><?php echo $catat['fk_no_chasis'];?></td>
                           <td ><?php echo $catat['fk_no_polisi'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
-                          <td ><?php echo rupiah2($catat['total_kwitansigr']);?></td>
+                          <td ><?php echo rupiah2($catat['total_paymentgr']);?></td>
                          <!-- <td ><?php //echo rupiah2($catat['total_ppn_kwitansigr']);?></td>
                           <td ><?php //echo rupiah2($catat['total_payment']);?></td>-->
                           <td >

@@ -24,7 +24,7 @@
                 <tbody>
                 <?php
                                    $j=1;
-                                   $sqlcatat = "SELECT k.no_kwitansigr as no_kwitansigr,total_kwitansigr as nilai, cash.no_ref,cash.titip_cashgr,bank.titip_bank 
+                                   $sqlcatat = "SELECT k.no_kwitansigr as no_kwitansigr,total_paymentgr as nilai, cash.no_ref,cash.titip_cashgr,bank.titip_bank 
                                       FROM t_kwitansigr k
                                     LEFT JOIN (SELECT no_bukti, no_ref, sum(total) as titip_cashgr
                                     FROM t_cashgr where tipe_transaksi='titipan'
@@ -36,6 +36,7 @@
                                   //  echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
+
                                 ?>
                         <tr>
                        
