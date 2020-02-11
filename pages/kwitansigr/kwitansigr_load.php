@@ -13,6 +13,8 @@
                           <th>No Polisi</th>
                           <th>Nama Customer</th>
                           <th>Total</th>
+                          <th>PPN</th>
+                          <th>Total Bayar</th>
                           <!--<th>PPN</th>
                            <th>Total Bayar</th>-->
                          
@@ -22,7 +24,7 @@
                 <tbody>
                 <?php
                                     $j=1;
-                                    $sqlcatat = "SELECT k.no_kwitansigr, k.tgl_kwitansigr,p.id_pkb_jasa,p.kategori,p.fk_no_chasis,p.fk_no_mesin,p.fk_no_polisi,c.nama,k.total_kwitansigr,k.total_ppn_kwitansigr,k.total_paymentgr,k.tgl_batal FROM t_kwitansigr k 
+                                    $sqlcatat = "SELECT k.*,k.no_kwitansigr, k.tgl_kwitansigr,p.id_pkb_jasa,p.kategori,p.fk_no_chasis,p.fk_no_mesin,p.fk_no_polisi,c.nama,k.total_kwitansigr,k.total_ppn_kwitansigr,k.total_paymentgr,k.tgl_batal FROM t_kwitansigr k 
                                       INNER JOIN t_pkb_jasa p ON k.fk_pkb_jasa=p.id_pkb_jasa 
                                       INNER JOIN t_customer c ON p.fk_customer=c.id_customer
                                       WHERE k.tgl_batal='0000:00:00 00:00:00'
@@ -42,9 +44,9 @@
                           <td ><?php echo $catat['fk_no_chasis'];?></td>
                           <td ><?php echo $catat['fk_no_polisi'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
+                          <td ><?php echo rupiah2($catat['total_kwitansigr']);?></td>
+                          <td ><?php echo rupiah2($catat['total_ppn_kwitansigr']);?></td>
                           <td ><?php echo rupiah2($catat['total_paymentgr']);?></td>
-                         <!-- <td ><?php //echo rupiah2($catat['total_ppn_kwitansigr']);?></td>
-                          <td ><?php //echo rupiah2($catat['total_payment']);?></td>-->
                           <td >
                                         <button type="button" class="btn btn-default btn-circle" id="<?php echo $catat['no_kwitansigr']; ?>" onclick="cetak_kw(idkwitansigr='<?php echo $catat['no_kwitansigr']; ?>');"><span>Cetak</span></button>
                                         <?php 
