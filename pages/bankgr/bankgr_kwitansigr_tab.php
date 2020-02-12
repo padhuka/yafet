@@ -24,17 +24,15 @@
                 <tbody>
                 <?php
                                    $j=1;
-                                   $sqlcatat = "SELECT k.no_kwitansigr as no_kwitansigr,total_paymentgr as nilai, bank.no_ref,bank.titip_bankgr,cash.titip_cash 
+                                   $sqlcatat = "   SELECT k.no_kwitansigr as no_kwitansigr,total_paymentgr as nilai, cash.no_ref ,bayar_cashgr , bayar_bankgr, (IFNULL(bayar_cashgr,0)+IFNULL(bayar_bankgr,0)) as totbayar
                                       FROM t_kwitansigr k
-                                    LEFT JOIN (SELECT no_bukti, no_ref, sum(total) as titip_bankgr
-                                    FROM t_bankgr where tipe_transaksi='titipan'
-                                    GROUP BY no_ref)AS bank ON bank.no_ref=k.fk_pkb_jasa
-
-                                    LEFT JOIN (SELECT no_bukti, no_ref, sum(total) as titip_cash
-                                    FROM t_cashgr where tipe_transaksi='titipan'  
-                                    GROUP BY no_ref)AS cash ON cash.no_ref=k.fk_pkb_jasa   
-
-                                    WHERE k.tgl_batal='0000-00-00 00:00:00'";
+                                    LEFT JOIN (SELECT no_bukti, no_ref, sum(total) as bayar_cashgr
+                                    FROM t_cashgr where tipe_transaksi='Pelunasan'
+                                    GROUP BY no_ref)AS cash ON cash.no_ref=k.no_kwitansigr
+                                    LEFT JOIN (SELECT no_bukti, no_ref, sum(total) as bayar_bankgr
+                                    FROM t_bankgr where tipe_transaksi='Pelunasan'  
+                                    GROUP BY no_ref)AS bank ON bank.no_ref=k.no_kwitansigr 
+                                            WHERE tgl_batal='0000-00-00 00:00:00' and cash.no_ref is NULL and bank.no_ref is NULL";
                                     //echo $sqlcatat;
                                     $rescatat = mysql_query( $sqlcatat );
                                     while($catat = mysql_fetch_array( $rescatat )){
@@ -43,7 +41,7 @@
                        
                        
                           <td ><?php echo $catat['no_kwitansigr'];?></td>
-                          <td ><?php echo ($catat['nilai']-($catat['titip_cash']+$catat['titip_bankgr']));?></td>
+                          <td ><?php echo ($catat['nilai']);?></td>
                        
                           <td >
                                        
