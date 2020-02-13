@@ -42,14 +42,44 @@
                                               <td align="center">TOTAL</td>
                                             </tr>
                                                <?php $j=1;
-                                                        $sqlcatat2 = "SELECT * FROM t_pkb_jasa_detail a LEFT JOIN t_jasa p ON a.fk_jasa=p.id_jasa WHERE a.fk_pkb_jasa='$idpkbjasa'";
+                                                        $sqlcatat2 = "SELECT * FROM t_pkb_jasa_detail a
+                                                        LEFT JOIN t_jasa p ON a.fk_jasa=p.id_jasa 
+                                                        WHERE a.fk_pkb_jasa='$idpkbjasa' AND a.fk_paket_jasa<>''";
                                                         $rescatat2 = mysql_query( $sqlcatat2 );
                                                         while($catat2 = mysql_fetch_array( $rescatat2 )){
                                                     ?>
                                             <tr>
                                               <td ><?php echo $j++;?></td>
                                               <td ><?php echo $catat2['nama'];?></td>
-                                              <td align="right"><?php echo rupiah2($catat2['harga_jual_paket_jasa']);?></td>
+                                              <td align="right"><?php echo rupiah2($catat2['harga_total_paket_jasa']);?></td>
+                                            </tr>
+                                        <?php }?>
+
+                                        <?php //$j=1;
+                                                        $sqlcatat2 = "SELECT * FROM t_pkb_jasa_detail a
+                                                        LEFT JOIN t_jasa p ON a.fk_jasa=p.id_jasa 
+                                                        WHERE a.fk_pkb_jasa='$idpkbjasa' AND a.fk_paket_jasa='' AND a.fk_part=''";
+                                                        $rescatat2 = mysql_query( $sqlcatat2 );
+                                                        while($catat2 = mysql_fetch_array( $rescatat2 )){
+                                                    ?>
+                                            <tr>
+                                              <td ><?php echo $j++;?></td>
+                                              <td ><?php echo $catat2['nama'];?></td>
+                                              <td align="right"><?php echo rupiah2($catat2['harga_total_jasa']);?></td>
+                                            </tr>
+                                        <?php }?>
+
+                                        <?php //$j=1;
+                                                        $sqlcatat2 = "SELECT * FROM t_pkb_jasa_detail a
+                                                        LEFT JOIN t_part p ON a.fk_part=p.id_part
+                                                        WHERE a.fk_pkb_jasa='$idpkbjasa' AND a.fk_part<>''";
+                                                        $rescatat2 = mysql_query( $sqlcatat2 );
+                                                        while($catat2 = mysql_fetch_array( $rescatat2 )){
+                                                    ?>
+                                            <tr>
+                                              <td ><?php echo $j++;?></td>
+                                              <td ><?php echo $catat2['nama'];?></td>
+                                              <td align="right"><?php echo rupiah2($catat2['harga_total_jasa']);?></td>
                                             </tr>
                                         <?php }?>
                                         

@@ -49,6 +49,7 @@
                         <h4 class="modal-title" id="myModalLabel">
                                     <button type="button" class=" btn btn-default btn-circle" name="jasa" onclick="jasae('<?php echo $idpkbjasa;?>'); $('#ModalAddjasax').modal('show');">&nbsp;Tambah Paket Jasa&nbsp;</button>
                                     <button type="button" class=" btn btn-default btn-circle" name="jasay" onclick="jasaey('<?php echo $idpkbjasa;?>'); $('#ModalAddjasay').modal('show');">&nbsp;Tambah Jasa&nbsp;</button>
+                                    <button type="button" class=" btn btn-default btn-circle" name="part" onclick="parte('<?php echo $idpkbjasa;?>'); $('#ModalAddpart').modal('show');">&nbsp;Tambah Part&nbsp;</button>
                         </h4>
                 </div> 
                 <div class="modal-header">                        
@@ -61,6 +62,7 @@
 </div>
         <div id="ModalAddjasax" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <div id="ModalAddjasay" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        <div id="ModalAddpart" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
 
         <script type="text/javascript">
             $(document).ready(function (){
@@ -86,6 +88,17 @@
                       success: function (ajaxData){
                         $("#ModalAddjasay").html(ajaxData);
                         $("#ModalAddjasay").modal('show',{backdrop: 'true'});
+                      }
+                    });
+              }
+
+              function parte(y){
+              $.ajax({
+                    url: "pkbjasa/part_tab.php?idpkbjasane="+y,
+                    type: "GET",
+                      success: function (ajaxData){
+                        $("#ModalAddpart").html(ajaxData);
+                        $("#ModalAddpart").modal('show',{backdrop: 'true'});
                       }
                     });
               }

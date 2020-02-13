@@ -92,7 +92,7 @@
                   LEFT JOIN t_jasa B ON B.id_jasa=A.fk_jasa
                   LEFT JOIN t_paket_jasa C ON C.id_paket_jasa=A.fk_paket_jasa                  
                   LEFT JOIN t_kwitansigr D ON D.fk_pkb_jasa= A.fk_pkb_jasa
-                  WHERE D.no_kwitansigr='$no_kwitansigr' AND A.fk_paket_jasa=''";
+                  WHERE D.no_kwitansigr='$no_kwitansigr' AND A.fk_paket_jasa='' AND A.fk_part=''";
                   //echo $sqlest;
                   $qest=mysql_query($sqlest);
                   while($hest= mysql_fetch_array($qest)){;
@@ -106,7 +106,28 @@
                           <td><?php echo rupiah2($hest['diskon_jasa']);?></td>
                           <td><?php echo rupiah2($hest['harga_total_jasa']);?></td>                         
                         </tr>    
-                  <?php } ?>      	
+                  <?php } ?>     
+
+                  <?php 
+                 $sqlest= "SELECT *, B.nama AS nmjasa, C.nama AS nmpaket FROM t_pkb_jasa_detail A
+                  LEFT JOIN t_part B ON B.id_part=A.fk_part
+                  LEFT JOIN t_paket_jasa C ON C.id_paket_jasa=A.fk_paket_jasa                  
+                  LEFT JOIN t_kwitansigr D ON D.fk_pkb_jasa= A.fk_pkb_jasa
+                  WHERE D.no_kwitansigr='$no_kwitansigr' AND A.fk_part<>''";
+                  //echo $sqlest;
+                  $qest=mysql_query($sqlest);
+                  while($hest= mysql_fetch_array($qest)){;
+                    //$totals=$totals+$hest['harga_jual_paket_jasa'];
+                    $totals=$hest['harga_total_jasa']+$totals;
+                ?>              
+                        <tr>
+                          <td><?php echo $hest['nmjasa'];?></td>
+                          <td></td>
+                          <td><?php echo rupiah2($hest['harga_jual_jasa']);?></td>
+                          <td><?php echo rupiah2($hest['diskon_jasa']);?></td>
+                          <td><?php echo rupiah2($hest['harga_total_jasa']);?></td>                         
+                        </tr>    
+                  <?php } ?>    	
                   <tr><td colspan="4" align="right">Sub Total Jasa</td><td align="right"><?php echo rupiah2($catat['total_kwitansigr']);?></td></tr>
                         <tr><td colspan="4" align="right">PPN</td><td align="right"><?php echo rupiah2($catat['total_ppn_kwitansigr']);?></td></tr>
                         <tr><td colspan="4" align="right"><strong>Grand Total</strong></td><td align="right"><?php echo rupiah2($catat['total_paymentgr']);?></td></tr>

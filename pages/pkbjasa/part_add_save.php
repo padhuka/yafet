@@ -2,28 +2,28 @@
         include_once '../../lib/config.php';
         include_once '../../lib/fungsi.php';
        //$ip = ; // Ambil IP Address dari User
-        $id_jasa=$_GET['id_jasa'];
+        $id_part=$_GET['id_part'];
         $idpkbjasa=$_GET['idpkbjasa'];
 
         $sqlest= "SELECT * FROM t_pkb_jasa_detail
-                  WHERE fk_pkb_jasa='$idpkbjasa' AND fk_paket_jasa='' AND fk_part='' AND fk_jasa='$id_jasa'";
+                  WHERE fk_pkb_jasa='$idpkbjasa' AND fk_paket_jasa='' AND fk_part<>'' AND fk_jasa='$id_part'";
                   //echo $sqlest;
                   $qest=mysql_query($sqlest);
                   $hest= mysql_fetch_array($qest);
-                  $hcek=$hest['fk_jasa'];
+                  $hcek=$hest['fk_part'];
                   
                   if ($hcek){ echo "Data Sudah Ada";
                   }else{
                       //paketdata
-                      $spaketdata= "SELECT * FROM t_jasa WHERE id_jasa='$id_jasa'";
+                      $spaketdata= "SELECT * FROM t_part WHERE id_part='$id_part'";
                       
                       $qpaketdata= mysql_query($spaketdata);
                       $hpdata=mysql_fetch_array($qpaketdata);
-                      $hargadiskon= $hpdata['diskon']*$hpdata['harga_pokok']/100;
+                      $hargadiskon= $hpdata['diskon']*$hpdata['harga_beli']/100;
                       $totaljasa= $hpdata['harga_jual']-$hargadiskon;
 
                         $sqltbemp = "INSERT INTO t_pkb_jasa_detail (fk_pkb_jasa,fk_paket_jasa,fk_jasa,fk_part,harga_jual_jasa,diskon_jasa,harga_diskon_jasa,harga_total_jasa)                         
-                         VALUES ('$idpkbjasa','','$hpdata[id_jasa]','','$hpdata[harga_jual]','$hpdata[diskon]',' $hargadiskon','$totaljasa')";
+                         VALUES ('$idpkbjasa','','$hpdata[id_part]','$hpdata[id_part]','$hpdata[harga_jual]','$hpdata[diskon]',' $hargadiskon','$totaljasa')";
                           mysql_query($sqltbemp);
                       //echo $sqltbemp;
                       

@@ -38,7 +38,26 @@
                    <?php 
                   $sqlest= "SELECT *, B.nama AS nmjasa FROM t_pkb_jasa_detail A
                   LEFT JOIN t_jasa B ON B.id_jasa=A.fk_jasa
-                  WHERE A.fk_pkb_jasa = '$idpkbjasa' AND A.fk_paket_jasa=''";
+                  WHERE A.fk_pkb_jasa = '$idpkbjasa' AND A.fk_paket_jasa='' AND A.fk_part='' ";
+                  //echo $sqlest;
+                  $qest=mysql_query($sqlest);
+                  while($hest= mysql_fetch_array($qest)){;
+                    //$totals=$totals+$hest['harga_jual_paket_jasa'];
+                    $totals=$hest['harga_total_jasa']+$totals;
+                ?>              
+                        <tr>
+                          <td><?php echo $hest['nmjasa'];?></td>
+                          <td></td>
+                          <td><?php echo rupiah2($hest['harga_jual_jasa']);?></td>
+                          <td><?php echo rupiah2($hest['diskon_jasa']);?></td>
+                          <td><?php echo rupiah2($hest['harga_total_jasa']);?></td>                         
+                        </tr>    
+                  <?php } ?>    
+
+                  <?php 
+                  $sqlest= "SELECT *, B.nama AS nmjasa FROM t_pkb_jasa_detail A
+                  LEFT JOIN t_part B ON B.id_part=A.fk_part
+                  WHERE A.fk_pkb_jasa = '$idpkbjasa' AND A.fk_paket_jasa='' AND A.fk_part<>'' ";
                   //echo $sqlest;
                   $qest=mysql_query($sqlest);
                   while($hest= mysql_fetch_array($qest)){;
