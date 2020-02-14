@@ -83,7 +83,7 @@
 
                <tr role="row" class="odd">
                  <td class="sorting_1" width="15%">Customer</td>
-                  <td width="30%"><input type="hidden"  class="form-control" id="uname" name="uname" readonly style="width:100%;">
+                  <td width="30%"><input type="hidden"  class="form-control" id="name" name="name" readonly style="width:100%;">
                   <input type="text"  class="form-control" id="customer" name="customer" readonly style="width:100%;">
                   </td>
                   <td  width="10%"></td>
@@ -97,6 +97,7 @@
                 <tr><td colspan="4">&nbsp;</td></tr>
                  <tr><td colspan="4" align="center" class="bgsave"><button type="submit" class="btn btn-default btn-circle save_submit" name="Submit" value="SIMPAN">Simpan</button>
                                     <button type="button" class="btn btn-default btn-circle" data-dismiss="modal" aria-hidden="true">&nbsp;Batal&nbsp;</button>
+                                    <input type="hidden" class="form-control" id="uname" name="uname" value="<?php echo $sesuname;?>" readonly>
                 </td></tr>
                 </tbody>
               </table>      

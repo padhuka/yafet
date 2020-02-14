@@ -59,7 +59,7 @@
                               $("#warna").val(d);
                               $("#warnanm").val(e);
                               $("#customer").val(f);
-                              $("#uname").val(g);
+                              $("#name").val(g);
                               $("#ModalChasis").modal('hide');
                       }; 
               </script>

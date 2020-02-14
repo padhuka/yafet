@@ -57,7 +57,7 @@
                               $("#warnae").val(d);
                               $("#warnanme").val(e);
                               $("#customere").val(f);
-                              $("#unamee").val(g);
+                              $("#namee").val(g);
                               $("#ModalChasisEdit").modal('hide');
                               /*$.ajax({
                               url: "suratmasuk/suratmasuk_add.php",
