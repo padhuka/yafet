@@ -80,6 +80,18 @@
                   </div>
                   </td>
                </tr>
+
+               <tr role="row" class="odd">
+                 <td class="sorting_1" width="15%">Customer</td>
+                  <td width="30%"><input type="hidden"  class="form-control" id="uname" name="uname" readonly style="width:100%;">
+                  <input type="text"  class="form-control" id="customer" name="customer" readonly style="width:100%;">
+                  </td>
+                  <td  width="10%"></td>
+                  <td  width="50%"><div class="col-sm-10">
+                  
+                  </div>
+                  </td>
+               </tr>
               
                <br>
                 <tr><td colspan="4">&nbsp;</td></tr>
@@ -153,6 +165,7 @@
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalAdd').modal('hide'); 
                                                             var hsl=data.trim();
+                                                            alert(hsl);
 
                                                              $.ajax({
                                                                 url: "estimasi/estimasi_detail.php?idestimasi="+hsl,

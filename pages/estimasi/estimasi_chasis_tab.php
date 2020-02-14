@@ -39,7 +39,7 @@
                           <td ><?php echo $catat['no_polisi'];?></td>
                           <td ><?php echo $catat['nama'];?></td>
                           <td>
-                                        <button type="button" class="btn btn-default btn-circle" onclick="selectChasis('<?php echo $catat['no_chasis'];?>','<?php echo $catat['no_mesin'];?>','<?php echo $catat['no_polisi'];?>','<?php echo $catat['id_warna_kendaraan'];?>','<?php echo $catat['warna'];?>','<?php echo $catat['fk_customer'];?>');">Pilih</button>
+                                        <button type="button" class="btn btn-default btn-circle" onclick="selectChasis('<?php echo $catat['no_chasis'];?>','<?php echo $catat['no_mesin'];?>','<?php echo $catat['no_polisi'];?>','<?php echo $catat['id_warna_kendaraan'];?>','<?php echo $catat['warna'];?>','<?php echo $catat['fk_customer'];?>','<?php echo $catat['nama'];?>');">Pilih</button>
 
                                     </td>
                         </tr>
@@ -52,13 +52,14 @@
               </div>
               <script type="text/javascript">
                 $('#tableChasis').DataTable();
-               function selectChasis(a,b,c,d,e,f){
+               function selectChasis(a,b,c,d,e,f,g){
                               $("#chasis").val(a);
                               $("#mesin").val(b);
                               $("#polisi").val(c);
                               $("#warna").val(d);
                               $("#warnanm").val(e);
                               $("#customer").val(f);
+                              $("#uname").val(g);
                               $("#ModalChasis").modal('hide');
                       }; 
               </script>

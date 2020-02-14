@@ -5,7 +5,9 @@
     include_once '../../lib/config.php';
     include_once '../../lib/fungsi.php';
     $idestimasi= $_GET['idestimasi'];
-    $sqlpan= "SELECT * FROM t_estimasi WHERE id_estimasi='$idestimasi'";
+    $sqlpan= "SELECT * FROM t_estimasi a
+    LEFT JOIN t_customer c ON a.fk_customer=c.id_customer
+    WHERE a.id_estimasi='$idestimasi'";
     $catat= mysql_fetch_array(mysql_query($sqlpan));
 
     $sqlcatat = "SELECT * FROM t_inventory_bengkel A, t_warna_kendaraan B  WHERE A.no_chasis='$catat[fk_no_chasis]' AND A.fk_warna_kendaraan=B.id_warna_kendaraan";  
@@ -95,14 +97,24 @@
                   </div>
                   </td>
                </tr>
+               <tr role="row" class="odd">
+                 <td class="sorting_1" width="15%">Customer</td>
+                  <td width="30%"><input type="hidden"  class="form-control" id="unamee" name="unamee" readonly style="width:100%;" value="<?php echo $catat['nama'];?>">
+                  <input type="text"  class="form-control" id="customere" name="customere" readonly style="width:100%;" value="<?php echo $catat['fk_customer'];?>">
+                  </td>
+                  <td  width="10%"></td>
+                  <td  width="50%"><div class="col-sm-10">
+                  
+                  </div>
+                  </td>
+               </tr>
               
                <br>
                 <tr><td colspan="4">&nbsp;</td></tr>
                  <tr><td colspan="4" align="center" class="bgsave"><button type="submit" class="btn btn-default btn-circle save_submit" name="Submit" value="SIMPAN">Simpan</button>
                                     <button type="button" class="btn btn-default btn-circle" data-dismiss="modal" aria-hidden="true">&nbsp;Batal&nbsp;</button>
                                     <input type="hidden" class="form-control" id="idestimasie" name="idestimasie" value="<?php echo $idestimasi;?>" readonly>
-                          <input type="hidden" class="form-control" id="unamee" name="unamee" value="<?php echo $sesuname;?>" readonly>
-                          <input type="hidden" class="form-control" id="customere" name="customere" readonly value="<?php echo $catat['fk_customer'];?>">                        
+                         
                 </td></tr>
                 </tbody>
               </table>  
