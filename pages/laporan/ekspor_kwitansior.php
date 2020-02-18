@@ -17,7 +17,7 @@ header("Content-Disposition: attachment; filename=reportkwitansior.xls");
       ?>
       <table width="100%" align="center" border="0">
                                   <tr>
-                                    <td width="50%"><u style="font-size: 20px;"><strong>Atlantic Repair & Car Wash</strong><br>
+                                    <td width="50%"><u style="font-size: 20px;"><strong><?php echo $title;?></strong><br>
                                     </u>
                                     (0271) 7880845 <br>
                                     
