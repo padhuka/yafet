@@ -19,7 +19,7 @@ header("Content-Disposition: attachment; filename=reportnonpkb.xls");
                                   <tr>
                                     <td width="50%"><u style="font-size: 20px;"><strong><?php echo $title;?></strong><br>
                                     </u>
-                                    (0271) 7880845 <br>
+                                    <?php echo $telp;?> <br>
                                     
                                     </td>
                                     <td align="right">
