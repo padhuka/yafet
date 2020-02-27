@@ -2,13 +2,12 @@
 	// DATA BASE
 	$user="root"; // userid untuk akses database anda
 	$db="yafetdb"; // nama database anda.
-	$passsw="s0l0b4ru"; // password untuk akses database anda
+	$passsw=""; // password untuk akses database anda
 	// baris dibawah ini jangan diedit
-	$host="localhost";
+	$host="localhost:3304";
 
 	//WEB
 	$title="AlfaOmega - Cat & Body";
 	$kabupaten="Atlantic";
 	$titlefooter="Aplikasi Service - Body Repair - Car Wash v.1";
-
 ?>
