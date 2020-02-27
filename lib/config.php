@@ -7,5 +7,5 @@
 	$tahunnow = date('Y');
 	$harinow = date('Y-m-d');
 	$ppne= 10;
-	$telp= '021 888889';
+	$telp= '0361 9094738';
 ?>
