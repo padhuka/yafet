@@ -66,9 +66,9 @@
                 <tr role="row" class="odd"  id="showAsuransie">
                  <td class="sorting_1" width="15%">Asuransi</td>
                   <td width="30%"> 
-                               <input type="hidden" class="form-control" id="asuransie" name="asuransie"> 
-                                <input type="text" class="form-control" id="asuransinme" name="asuransinme" readonly> 
-                                <button type="button" class="btn btn-default btn-circle" data-toggle="modal" data-target="#myModal" onclick="selectKategorie();" id="buttonAsuransi">Pilih Asuransi</button>
+                               <input type="hidden" class="form-control" id="asuransie" name="asuransie" value="<?php echo $catat['fk_asuransi'];?>"> 
+                                <input type="text" class="form-control" id="asuransinme" name="asuransinme" readonly value="<?php echo $nmas;?>"> 
+                                <button type="button" class="btn btn-default btn-circle" data-toggle="modal" data-target="#myModal" onclick="selectAsuransie();" id="buttonAsuransi">Pilih Asuransi</button>
                   </td>
                   <td  width="10%"></td>
                   <td  width="50%"><div class="col-sm-10">
@@ -151,6 +151,7 @@
   function editChasis(){ 
     $("#ModalChasisEdit").modal({backdrop: 'static',keyboard:false});   
   }
+  
   $(document).ready(function (){
 
                       $("#formestimasie").on('submit', function(e){
@@ -176,7 +177,7 @@
                                                             alert('Data Berhasil Disimpan');
                                                             $('#ModalEdit').modal('hide'); 
                                                             var hsl=data.trim();       
-
+                                                            
                                                              $.ajax({
                                                                 url: "estimasi/estimasi_detail.php?idestimasi="+hsl,
                                                                 type: "GET",

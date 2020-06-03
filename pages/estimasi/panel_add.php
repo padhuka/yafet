@@ -103,8 +103,8 @@
                                                   cache: false,
                                                   processData:false,
                                                   success: function(data){  
-                                                      var hsl=data.trim();
-                                                      alert(hsl);
+                                                      //var hsl=data.trim();
+                                                      //alert(hsl);
                                                       //alert('estimasi/estimasi_detail_tab.php?idestimasi=<?php //echo $idestimasi;?>');
 			                                                $("#tablepanel").load('estimasi/panel_load.php?idestimasi=<?php echo $idestimasi;?>');
 
