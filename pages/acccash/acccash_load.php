@@ -111,9 +111,9 @@
                                     $sqlcatat = "SELECT A.*,A.description AS descrip, B.description AS nmakun,C.description AS nmref FROM t_acc_cash A
                                                 LEFT JOIN t_akun B ON A.fk_akun=B.coa
                                                 LEFT JOIN t_akun C ON A.ref_akun=C.coa
-                                                ORDER BY A.urut DESC";
+                                                ORDER BY A.no_bukti DESC";
                                     $rescatat = mysql_query( $sqlcatat );
-                                    //echo $sqlcatat;
+                                    echo $sqlcatat;
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
