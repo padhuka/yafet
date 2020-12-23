@@ -113,7 +113,7 @@
                                                 LEFT JOIN t_akun C ON A.ref_akun=C.coa
                                                 ORDER BY A.no_bukti DESC";
                                     $rescatat = mysql_query( $sqlcatat );
-                                    echo $sqlcatat;
+                                    //echo $sqlcatat;
                                     while($catat = mysql_fetch_array( $rescatat )){
                                 ?>
                         <tr>
