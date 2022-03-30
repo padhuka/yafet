@@ -3,6 +3,7 @@
         include_once '../../lib/fungsi.php';
 
         $idpkb = trim($_POST['idpkb']);
+        //$idpkb = 'PKB_BR.030222.000159';
      
         $hrn2= date('dmy' , strtotime($hrini));
         $kodeawal2 = 'SI_BR.';
@@ -47,11 +48,16 @@
             $nettototal = $hsl['total_netto_harga_jasa'];
             $nilaior = $hsl['nilai_kwitansi'];
 
+            $tgl_pkb = date('Y-m-d',strtotime($hsl['tgl']));
+            $tgl = '2022-03-01';
 
-            $ppn = $nettototal*10/100;
+            if ($tgl_pkb < $tgl ){
+                $ppn = $nettototal*10/100;
+            }else{
+                $ppn = $nettototal*11/100;
+            }
             $payment = $nettototal+$ppn;
 
-        
         $sqltbemp = "INSERT INTO t_kwitansi (no_kwitansi,fk_pkb,total_gross_panel,total_gross_part,total_diskon_panel,total_diskon_part,total_netto_panel,total_netto_part,total_ppn_kwitansi,total_kwitansi,total_payment) VALUES ('$kodebaru','$idpkb','$grosspanel','$grosspart','$diskonpanel','$diskonpart','$nettopanel','$nettopart',$ppn,'$nettototal',$payment)";
 
             mysql_query($sqltbemp);
