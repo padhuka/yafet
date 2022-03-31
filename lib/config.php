@@ -6,6 +6,6 @@
 	$hrini = date('Y-m-d H:i:s');
 	$tahunnow = date('Y');
 	$harinow = date('Y-m-d');
-	$ppne= 10;
+	$ppne= 11;
 	$telp= '0361 9094738';
 ?>
