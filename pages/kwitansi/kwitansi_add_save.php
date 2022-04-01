@@ -3,7 +3,7 @@
         include_once '../../lib/fungsi.php';
 
         $idpkb = trim($_POST['idpkb']);
-        //$idpkb = 'PKB_BR.030222.000159';
+        //$idpkb = 'PKB_BR.100222.000154';
      
         $hrn2= date('dmy' , strtotime($hrini));
         $kodeawal2 = 'SI_BR.';
@@ -48,12 +48,13 @@
             $nettototal = $hsl['total_netto_harga_jasa'];
             $nilaior = $hsl['nilai_kwitansi'];
 
-            $tgl_pkb = date('Y-m-d',strtotime($hsl['tgl']));
-            $tgl = '2022-03-01';
+            $tgl_pkb = date('Y-m-d');
+            $tgl = '2022-04-01';
 
             if ($tgl_pkb < $tgl ){
                 $ppn = $nettototal*10/100;
-            }else{
+            }
+            if ($tgl_pkb >= $tgl ){
                 $ppn = $nettototal*11/100;
             }
             $payment = $nettototal+$ppn;
