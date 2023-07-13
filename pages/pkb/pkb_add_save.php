@@ -11,7 +11,7 @@
         $kodeawal2 = 'PKB_BR.';
         $kodeawal = 'PKB_BR.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_pkb WHERE id_pkb LIKE '$kodeawal2%' ORDER BY id_pkb DESC";
-        $sqljur = "SELECT * FROM t_pkb ORDER BY tgl DESC";
+        $sqljur = "SELECT * FROM t_pkb where tgl_batal ='0000-00-00 00:00:00' ORDER BY tgl desc";
         $resultjur = mysql_query( $sqljur );
         $jur = mysql_fetch_array( $resultjur );
         if (empty($jur['id_pkb'])){
