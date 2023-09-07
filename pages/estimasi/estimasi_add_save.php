@@ -21,7 +21,8 @@
         $kodeawal2 = 'EST_BR.';
         $kodeawal = 'EST_BR.'.$hrn2.'.';
         //$sqljur = "SELECT * FROM t_estimasi WHERE id_estimasi LIKE '$kodeawal2%' ORDER BY id_estimasi DESC";
-        $sqljur = "SELECT * FROM t_estimasi where tgl_batal ='0000-00-00 00:00:00' ORDER BY tgl DESC";
+        // $sqljur = "SELECT * FROM t_estimasi where tgl_batal ='0000-00-00 00:00:00' ORDER BY tgl DESC";
+        $sqljur = "SELECT * FROM t_estimasi where id_estimasi like '$kodeawal%' order by substring(id_estimasi,3) desc";
         $resultjur = mysql_query($sqljur);
         $jur = mysql_fetch_array($resultjur);
         if (empty($jur['id_estimasi'])){
