@@ -19,7 +19,7 @@
                 <tbody>
                 <?php
                     $j         = 1;
-                    $per_limit = '2024-01-01';
+                    $per_limit = '2023-01-01';
                     $sqlcatat  = "SELECT p.*,state.status as statuspkb,c.nama,k.no_kwitansi FROM t_pkb p
                                    LEFT JOIN t_customer c ON p.fk_customer=c.id_customer
                                    LEFT JOIN ( SELECT * from t_kwitansi where tgl_batal='0000-00-00 00:00:00') AS k ON p.id_pkb=k.fk_pkb
